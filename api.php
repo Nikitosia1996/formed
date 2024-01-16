@@ -204,7 +204,7 @@
               <div class="card card1" onclick="location.href='https://who-ru.digitalhero.cloud/session'" style="background: url('/dist/img/florence.png'); background-repeat: no-repeat; background-color: #e0e0e2;">
                   <h2>Виртуальный консультант Флоренс</h2>
               </div>
-            <div class="card card1" onclick="location.href='#'" style="background: url('/imgs/onlineeducationr.png'); background-repeat: no-repeat; background-color: #e0e0e2;">
+            <div class="card card1" onclick="location.href='index.php?coursy'" style="background: url('/imgs/onlineeducationr.png'); background-repeat: no-repeat; background-color: #e0e0e2;">
               <h2>Образовательные курсы111</h2>
             </div>
               <!-- DIRECT CHAT -->

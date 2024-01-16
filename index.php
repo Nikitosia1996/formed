@@ -395,6 +395,9 @@ else {
                         case 'video':
                             include 'apivideo.php';
                             break;
+                      case 'coursy':
+                        include 'coursy.php';
+                        break;
                         case 'vop':
                             include 'apivop.php';
                             break;
@@ -434,6 +437,9 @@ else {
                              case 'video':
                                  include 'apivideo.php';
                                  break;
+                           case 'coursy':
+                             include 'coursy.php';
+                             break;
                              case 'vop':
                                  include 'apivop.php';
                                  break;
