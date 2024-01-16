@@ -1,0 +1,523 @@
+<style>
+
+  #iframe
+  {
+    width: 99%;
+    height: 94%;
+    overflow: hidden !important;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    position: fixed;
+    background-color: #fefefe;
+    margin: 0% auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .back-button {
+    margin-bottom: 0px;
+    display: flex !important;
+    margin-left: 6px;
+  }
+
+
+
+
+
+
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-container {
+    position: relative;
+    display: block;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .link1 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 27%;
+    left: 62%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link2 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 27%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size:14px;
+  }
+  .link3 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 32%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link4 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 34%;
+    left: 59%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link5 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 38%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size:14px;
+  }
+  .link6 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 38%;
+    left: 84%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link7 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 88%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size:13px
+  }
+  .link8 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 45%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link9 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 47%;
+    left: 64%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link10 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 41%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link11 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 56%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link12 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 64%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 14px;
+  }
+  .link13 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 39%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 15px;
+  }
+  .link14 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 48%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link15 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 60%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 14px;
+  }
+  .link16 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 65%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 15px;
+  }
+  .link17 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 56%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link18 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 48%;
+    left: 31%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 15px;
+  }
+  .link19 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 48%;
+    left: 16%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link20 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 61%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link21 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 63%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+
+  .linkKarta1 {
+    color: #5643dd;
+    text-decoration: none;
+    position: absolute;
+    top: 3%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .linkKarta2 {
+    color: #5643dd;
+    text-decoration: none;
+    position: absolute;
+    top: 3%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+
+</style>
+
+
+<div class="image-container">
+  <img src="/elements/gomel.jpg" alt="Картинка">
+  <div class="overlay" >
+    <a href="#" class="link1">Рогачевский</a>
+    <a href="#" class="link2">Кормянский</a>
+    <a href="#" class="link3">Чечерский</a>
+    <a href="#" class="link4">Жлобинский</a>
+    <a href="#" class="link5">Буда-Кошелевский</a>
+    <a href="#" class="link6">Ветковский</a>
+    <a href="#" class="link7">Добрушский</a>
+    <a href="#" class="link8">Гомельский</a>
+    <a href="#" class="link9">Речицкий</a>
+    <a href="#" class="link10">Светлогорский</a>
+    <a href="#" class="link11">Лоевский</a>
+    <a href="#" class="link12">Брагинский</a>
+    <a href="#" class="link13">Октябрьский</a>
+    <a href="#" class="link14">Калинковичский</a>
+    <a href="#" class="link15">Хойникский</a>
+    <a href="#" class="link16">Наровлянский</a>
+    <a href="#" class="link17">Мозырский</a>
+    <a href="#" class="link18">Петриковский</a>
+    <a href="#" class="link19">Житковичский</a>
+    <a href="#" class="link20">Лельчицкий</a>
+    <a href="#" class="link21">Ельский</a>
+    <a href="#" class="linkKarta1">Карта оснащения аппаратами РКТ Гомельской области</a>
+    <a href="#" class="linkKarta2">Карта оснащения аппаратами МРТ Гомельской области</a>
+  </div>
+</div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <button class="back-button">Назад</button>
+    <iframe id="iframe" src=""></iframe>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("myModal");
+    var close = document.getElementsByClassName("close")[0];
+    var back = document.getElementsByClassName("back-button")[0];
+    var link1 = document.getElementsByClassName("link1")[0];
+
+    var link2 = document.getElementsByClassName("link2")[0];
+
+    var link3 = document.getElementsByClassName("link3")[0];
+
+    var link4 = document.getElementsByClassName("link4")[0];
+
+    var link5 = document.getElementsByClassName("link5")[0];
+
+    var link6 = document.getElementsByClassName("link6")[0];
+
+    var link7 = document.getElementsByClassName("link7")[0];
+
+    var link8 = document.getElementsByClassName("link8")[0];
+
+    var link9 = document.getElementsByClassName("link9")[0];
+
+    var link10 = document.getElementsByClassName("link10")[0];
+
+    var link11 = document.getElementsByClassName("link11")[0];
+
+    var link12 = document.getElementsByClassName("link12")[0];
+
+    var link13 = document.getElementsByClassName("link13")[0];
+
+    var link14 = document.getElementsByClassName("link14")[0];
+
+    var link15 = document.getElementsByClassName("link15")[0];
+
+    var link16 = document.getElementsByClassName("link16")[0];
+
+    var link17 = document.getElementsByClassName("link17")[0];
+
+    var link18 = document.getElementsByClassName("link18")[0];
+
+    var link19 = document.getElementsByClassName("link19")[0];
+
+    var link20 = document.getElementsByClassName("link20")[0];
+
+    var link21 = document.getElementsByClassName("link21")[0];
+    var linkKarta1 = document.getElementsByClassName("linkKarta1")[0];
+    var linkKarta2 = document.getElementsByClassName("linkKarta2")[0];
+
+
+    var iframe = document.getElementById("iframe");
+
+    link1.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelRogachevskogo.php");
+    });
+
+    link2.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelKormyanskogo.php");
+    });
+
+    link3.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelChecherskogo.php");
+    });
+
+    link4.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelZhlobin.php");
+    });
+
+    link5.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelBudaKoshelev.php");
+    });
+
+    link6.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelVetka.php");
+    });
+
+    link7.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelDobrush.php");
+    });
+
+    link8.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelGomel.php");
+    });
+
+    link9.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelRechickogo.php");
+    });
+
+    link10.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelSvetlogorskogo.php");
+    });
+
+    link11.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelLoevskogo.php");
+    });
+
+    link12.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelBragin.php");
+    });
+
+    link13.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelOktyabrskogo.php");
+    });
+
+    link14.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelKalinkovichi.php");
+    });
+
+    link15.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelHoinikskogo.php");
+    });
+
+    link16.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelNarovlyanskogo.php");
+    });
+
+    link17.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelMozirskogo.php");
+    });
+
+    link18.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelPetrikovskogo.php");
+    });
+
+    link19.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelZhitkovichi.php");
+    });
+
+    link20.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelLelchickogo.php");
+    });
+
+    link21.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelElskogo.php");
+    });
+
+    linkKarta1.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelKarta1.html");
+    });
+    linkKarta2.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoGomelKarta2.html");
+    });
+
+
+
+
+
+
+
+
+    close.addEventListener("click", function() {
+      hideModal();
+    });
+
+    back.addEventListener("click", function() {
+      hideModal();
+    });
+
+    function showModal(src) {
+      iframe.src = src;
+      modal.style.display = "block";
+      back.style.display = "none";
+    }
+
+    function hideModal() {
+      modal.style.display = "none";
+    }
+  });
+</script>
+
+

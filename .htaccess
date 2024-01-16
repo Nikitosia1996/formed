@@ -1,0 +1,4 @@
+RewriteCond %{HTTPS} !on
+RewriteCond %{SERVER_PORT} ^80$ 
+RewriteCond %{HTTP:CF-Visitor} '"scheme":"http"'
+RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]

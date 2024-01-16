@@ -1,0 +1,279 @@
+#myInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width:100%;
+
+}
+
+#myUL li a {
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+}
+
+#myUL li a:hover:not(.header) {
+    background-color: #eee;
+}
+
+.card0{
+    cursor: pointer;
+    height: 85px;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    justify-content: center;
+    color: black;
+    transition: all 0.5s ease-in;
+}
+
+
+.card5 {
+    /*background: url('/dist/img/18042023-PhotoRoom.png-PhotoRoom.png');*/
+    background: url("smoke-withoutbg.png");
+    background-size: 10%;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+    background-color: #e0e0e2;
+    background-position-y: center;
+}
+.card5:hover {
+    opacity: 0.7;
+    transform: scale(0.98);
+    background: url("smoke.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 92%;
+    background-position-y: center;
+}
+
+.activecard5 {
+    opacity: 1;
+    transform: scale(0.98);
+    background: url("smoke.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+.card1 {
+    /*background: url('/dist/img/18042023-PhotoRoom.png-PhotoRoom.png');*/
+    background: url("bsk.png");
+    background-size: 10%;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+    background-color: #e0e0e2;
+    background-position-y: center;
+}
+.card1:hover {
+    opacity: 0.7;
+    transform: scale(0.98);
+    background: url("bsk.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 92%;
+    background-position-y: center;
+}
+
+.activecard1 {
+    opacity: 1;
+    transform: scale(0.98);
+    background: url("bsk.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+.card2 {
+    /*background: url('/dist/img/18042023-PhotoRoom.png-PhotoRoom.png');*/
+    background: url("demencia.png");
+    background-size: 10%;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+    background-color: #e0e0e2;
+    background-position-y: center;
+}
+.card2:hover {
+    opacity: 0.7;
+    transform: scale(0.98);
+    background: url("demencia.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 92%;
+    background-position-y: center;
+}
+
+.activecard2 {
+    opacity: 1;
+    transform: scale(0.98);
+    background: url("demencia.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+.card3 {
+    /*background: url('/dist/img/18042023-PhotoRoom.png-PhotoRoom.png');*/
+    background: url("depressia.png");
+    background-size: 10%;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+    background-color: #e0e0e2;
+    background-position-y: center;
+}
+.card3:hover {
+    opacity: 0.7;
+    transform: scale(0.98);
+    background: url("depressia.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 92%;
+    background-position-y: center;
+}
+
+.activecard3 {
+    opacity: 1;
+    transform: scale(0.98);
+    background: url("depressia.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+.card4 {
+    /*background: url('/dist/img/18042023-PhotoRoom.png-PhotoRoom.png');*/
+    background: url("ims.png");
+    background-size: 10%;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+    background-color: #e0e0e2;
+    background-position-y: center;
+}
+.card4:hover {
+    opacity: 0.7;
+    transform: scale(0.98);
+    background: url("ims.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 92%;
+    background-position-y: center;
+}
+
+.activecard4 {
+    opacity: 1;
+    transform: scale(0.98);
+    background: url("ims.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+.card6 {
+    /*background: url('/dist/img/18042023-PhotoRoom.png-PhotoRoom.png');*/
+    background: url("diabet.png");
+    background-size: 10%;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+    background-color: #e0e0e2;
+    background-position-y: center;
+}
+.card6:hover {
+    opacity: 0.7;
+    transform: scale(0.98);
+    background: url("diabet.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 92%;
+    background-position-y: center;
+}
+
+.activecard6 {
+    opacity: 1;
+    transform: scale(0.98);
+    background: url("diabet.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+.card7 {
+    /*background: url('/dist/img/18042023-PhotoRoom.png-PhotoRoom.png');*/
+    background: url("hobl.png");
+    background-size: 10%;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+    background-color: #e0e0e2;
+    background-position-y: center;
+}
+.card7:hover {
+    opacity: 0.7;
+    transform: scale(0.98);
+    background: url("hobl.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 92%;
+    background-position-y: center;
+}
+
+.activecard7 {
+    opacity: 1;
+    transform: scale(0.98);
+    background: url("hobl.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+.card8 {
+    /*background: url('/dist/img/18042023-PhotoRoom.png-PhotoRoom.png');*/
+    background: url("alkogol.png");
+    background-size: 10%;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+    background-color: #e0e0e2;
+    background-position-y: center;
+}
+.card8:hover {
+    opacity: 0.7;
+    transform: scale(0.98);
+    background: url("alkogol.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 92%;
+    background-position-y: center;
+}
+
+.activecard8 {
+    opacity: 1;
+    transform: scale(0.98);
+    background: url("alkogol.gif");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 95%;
+    background-position-y: center;
+}

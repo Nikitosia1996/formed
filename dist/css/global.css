@@ -1,0 +1,121 @@
+ polygon:hover, polygon.active, polygon.active-p  {
+  /*fill: #61cdd1;*/
+}
+polygon:hover circle{
+  fill: #fff;
+}
+polygon.active[data-text="minsk-obl"]{
+fill: #4195b9 !important;
+}
+polygon.active[data-text="vitebsk"]{
+fill: #137197 !important;
+}
+polygon.active[data-text="mogilev"]{
+fill: #2f87ad !important;
+}
+polygon.active[data-text="homel"]{
+fill: #60afd0 !important;
+}
+polygon.active[data-text="brest"]{
+fill: #50a3c5 !important;
+}
+polygon.active[data-text="hrodna"]{
+fill: #1f7ba2 !important;
+}
+polygon.active-p[data-text="minsk-obl"]{
+fill: #4195b9 !important;
+}
+polygon.active-p[data-text="vitebsk"]{
+fill: #137197 !important;
+}
+polygon.active-p[data-text="mogilev"]{
+fill: #2f87ad !important;
+}
+polygon.active-p[data-text="homel"]{
+fill: #60afd0 !important;
+}
+polygon.active-p[data-text="brest"]{
+fill: #50a3c5 !important;
+}
+polygon.active-p[data-text="hrodna"]{
+fill: #1f7ba2 !important;
+}
+polygon[data-text="minsk-obl"]:hover{
+fill: #4195b9 !important;
+}
+polygon[data-text="vitebsk"]:hover{
+fill: #137197 !important;
+}
+polygon[data-text="mogilev"]:hover{
+fill: #2f87ad !important;
+}
+polygon[data-text="homel"]:hover{
+fill: #60afd0 !important;
+}
+polygon[data-text="brest"]:hover{
+fill: #50a3c5 !important;
+}
+polygon[data-text="hrodna"]:hover{
+fill: #1f7ba2 !important;
+}
+text:hover{
+  fill: #fff
+}
+polygon, circle, text{
+  cursor:pointer;
+}
+.st0{fill:#E6EAE9;}
+.st1{fill:#3e95b8;}
+#regions-switch {
+  display: inline-block;
+  background-color: #ddd;
+  margin: 5px 0 15px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.switchButton {
+  display: inline-block;
+  color:#666;
+  padding: 6px 15px 8px;
+  cursor: pointer;
+}
+
+.switchButton.checked {
+  color: #fff;
+  background-color: #457b7e;
+  cursor: default;
+  pointer-events: none;
+}
+ #tClassifiers_length {
+   display: none;
+ }
+
+ #tClassifiers_previous{
+   display: none;
+ }
+
+ #tClassifiers_next{
+   display: none;
+ }
+
+ .loader {
+     border: 16px solid #f3f3f3;
+     border-radius: 50%;
+     border-top: 16px solid #148a8a;
+     width: 120px;
+     height: 120px;
+     -webkit-animation: spin 2s linear infinite; /* Safari */
+     animation: spin 2s linear infinite;
+ }
+
+ /* Safari */
+ @-webkit-keyframes spin {
+     0% { -webkit-transform: rotate(0deg); }
+     100% { -webkit-transform: rotate(360deg); }
+ }
+
+ @keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+ }

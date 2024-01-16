@@ -1,0 +1,425 @@
+<style>
+
+  #iframe
+  {
+    width: 99%;
+    height: 94%;
+    overflow: hidden !important;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    position: fixed;
+    background-color: #fefefe;
+    margin: 0% auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .back-button {
+    margin-bottom: 0px;
+    display: flex !important;
+    margin-left: 6px;
+  }
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
+  .image-container {
+    position: relative;
+    display: block;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .link1 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 26%;
+    left: 62%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link2 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 37%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 13px;
+  }
+  .link3 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 42%;
+    left: 71%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 14px;
+  }
+
+  .link4 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 79%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link5 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 61%;
+    left: 83%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link6 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 54%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link7 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 42%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link8 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 43%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link9 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 47%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link10 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 54%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 13px;
+  }
+  .link11 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 55%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 14px;
+  }
+  .link12 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 55%;
+    left: 31%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 14px;
+  }
+  .link13 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 59%;
+    left: 19%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 13px;
+  }
+  .link14 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 63%;
+    left: 24%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 13px;
+  }
+  .link15 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 53%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 11px;
+  }
+  .link16 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 49%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 15px;
+  }
+  .linkKarta1 {
+    color: #5643dd;
+    text-decoration: none;
+    position: absolute;
+    top: 3%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .linkKarta2 {
+    color: #5643dd;
+    text-decoration: none;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+</style>
+
+
+<div class="image-container">
+  <img src="/elements/brest.jpg" alt="Картинка">
+  <div class="overlay" >
+    <a href="#" class="link1">Барановичский</a>
+    <a href="#" class="link2">Ляховичский</a>
+    <a href="#" class="link3">Ганцевичский</a>
+    <a href="#" class="link4">Лунинецкий</a>
+    <a href="#" class="link5">Столинский</a>
+    <a href="#" class="link6">Пинский</a>
+    <a href="#" class="link7">Ивацевичский</a>
+    <a href="#" class="link8">Пружанский</a>
+    <a href="#" class="link9">Березовский</a>
+    <a href="#" class="link10">Ивановский</a>
+    <a href="#" class="link11">Дрогичинский</a>
+    <a href="#" class="link12">Кобринский</a>
+    <a href="#" class="link13">Бресткий</a>
+    <a href="#" class="link14">Малоритский</a>
+    <a href="#" class="link15">Жабинковский</a>
+    <a href="#" class="link16">Каменецкий</a>
+    <a href="imgs/brestKarta1.png" class="linkKarta1">Карта оснащения аппаратами РКТ Брестской области</a>
+    <a href="imgs/brestKarta2.png" class="linkKarta2">Карта оснащения аппаратами МРТ Брестской области</a>
+  </div>
+</div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <button class="back-button">Назад</button>
+    <iframe id="iframe" src="" style = "overflow: hidden !important; "></iframe>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("myModal");
+    var close = document.getElementsByClassName("close")[0];
+    var back = document.getElementsByClassName("back-button")[0];
+    var link1 = document.getElementsByClassName("link1")[0];
+
+    var link2 = document.getElementsByClassName("link2")[0];
+
+    var link3 = document.getElementsByClassName("link3")[0];
+
+    var link4 = document.getElementsByClassName("link4")[0];
+
+    var link5 = document.getElementsByClassName("link5")[0];
+
+    var link6 = document.getElementsByClassName("link6")[0];
+
+    var link7 = document.getElementsByClassName("link7")[0];
+
+    var link8 = document.getElementsByClassName("link8")[0];
+
+    var link9 = document.getElementsByClassName("link9")[0];
+
+    var link10 = document.getElementsByClassName("link10")[0];
+
+    var link11 = document.getElementsByClassName("link11")[0];
+
+    var link12 = document.getElementsByClassName("link12")[0];
+
+    var link13 = document.getElementsByClassName("link13")[0];
+
+    var link14 = document.getElementsByClassName("link14")[0];
+
+    var link15 = document.getElementsByClassName("link15")[0];
+
+    var link16 = document.getElementsByClassName("link16")[0];
+
+    var linkKarta1 = document.getElementsByClassName("linkKarta1")[0];
+    var linkKarta2 = document.getElementsByClassName("linkKarta2")[0];
+
+    var iframe = document.getElementById("iframe");
+
+    link1.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestBaranovichi.php");
+    });
+
+    link2.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestLyahovich.php");
+    });
+
+    link3.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestGancevichi.php");
+    });
+
+    link4.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestLuninec.php");
+    });
+
+    link5.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestStolin.php");
+    });
+
+    link6.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestPinsk.php");
+    });
+
+    link7.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestIvacevichski.php");
+    });
+
+    link8.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestPruzhani.php");
+    });
+
+    link9.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestBerezovski.php");
+    });
+
+    link10.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestIvanovski.php");
+    });
+
+    link11.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestDrogichin.php");
+    });
+
+    link12.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestKobrin.php");
+    });
+
+    link13.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestBrest.php");
+    });
+
+    link14.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestMalorit.php");
+    });
+
+    link15.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestZhabinka.php");
+    });
+
+    link16.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestKameneck.php");
+    });
+
+    linkKarta1.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestkKarta1.html");
+    });
+    linkKarta2.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoBrestKarta2.html");
+    });
+
+
+    close.addEventListener("click", function() {
+      hideModal();
+    });
+
+    back.addEventListener("click", function() {
+      hideModal();
+    });
+
+    function showModal(src) {
+      iframe.src = src;
+      modal.style.display = "block";
+      back.style.display = "none";
+    }
+
+    function hideModal() {
+      modal.style.display = "none";
+    }
+  });
+</script>
+
+

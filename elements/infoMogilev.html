@@ -1,0 +1,520 @@
+<style>
+
+  #iframe
+  {
+    width: 99%;
+    height: 94%;
+    overflow: hidden !important;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    position: fixed;
+    background-color: #fefefe;
+    margin: 0% auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .back-button {
+    margin-bottom: 0px;
+    display: flex !important;
+    margin-left: 6px;
+  }
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-container {
+    position: relative;
+    display: block;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+  .link1 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 29%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link2 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 36%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size:14px;
+  }
+  .link3 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 44%;
+    left: 73%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-sise: 13px;
+  }
+  .link4 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 47%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link5 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 53%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size:14px;
+  }
+  .link6 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 56%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size:13px;
+  }
+  .link7 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 48%;
+    left: 68%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size:13px
+  }
+  .link8 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 42%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link9 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 33%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link10 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 31%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size:13px;
+  }
+  .link11 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 41%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link12 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 52%;
+    left: 59%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 14px;
+  }
+  .link13 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 54%;
+    left: 69%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 13px;
+  }
+  .link14 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link15 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 38%;
+    left: 36%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 14px;
+  }
+  .link16 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 48%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 15px;
+  }
+  .link17 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 55%;
+    left: 32%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link18 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 53%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 15px;
+  }
+  .link19 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 61%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link20 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 66%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .link21 {
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 35%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size:13px;
+  }
+
+  .linkKarta1 {
+    color: #5643dd;
+    text-decoration: none;
+    position: absolute;
+    top: 3%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .linkKarta2 {
+    color: #5643dd;
+    text-decoration: none;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+
+</style>
+
+
+<div class="image-container">
+  <img src="/elements/mogilev.jpg" alt="Картинка">
+  <div class="overlay" >
+    <a href="#" class="link1">Горецкий</a>
+    <a href="#" class="link2">Мстиславский</a>
+    <a href="#" class="link3">Кричевский</a>
+    <a href="#" class="link4">Климовичский</a>
+    <a href="#" class="link5">Хотимский</a>
+    <a href="#" class="link6">Костюковичский</a>
+    <a href="#" class="link7">Чериковский</a>
+    <a href="#" class="link8">Чаусский</a>
+    <a href="#" class="link9">Шкловский</a>
+    <a href="#" class="link10">Круглянский</a>
+    <a href="#" class="link11">Могилевский</a>
+    <a href="#" class="link12">Славгородский</a>
+    <a href="#" class="link13">Краснопольский</a>
+    <a href="#" class="link14">Быховский</a>
+    <a href="#" class="link15">Белыничский</a>
+    <a href="#" class="link16">Кличевский</a>
+    <a href="#" class="link17">Кировский</a>
+    <a href="#" class="link18">Осиповичский</a>
+    <a href="#" class="link19">Бобруйский</a>
+    <a href="#" class="link20">Глусский</a>
+    <a href="#" class="link21">Дрибинский</a>
+    <a href="imgs/mogilevKarta1.png" class="linkKarta1">Карта оснащения аппаратами РКТ Могилевской области</a>
+    <a href="imgs/mogilevKarta2.png" class="linkKarta2">Карта оснащения аппаратами МРТ Могилевской области</a>
+  </div>
+</div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <button class="back-button">Назад</button>
+    <iframe id="iframe" src=""></iframe>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("myModal");
+    var close = document.getElementsByClassName("close")[0];
+    var back = document.getElementsByClassName("back-button")[0];
+    var link1 = document.getElementsByClassName("link1")[0];
+
+    var link2 = document.getElementsByClassName("link2")[0];
+
+    var link3 = document.getElementsByClassName("link3")[0];
+
+    var link4 = document.getElementsByClassName("link4")[0];
+
+    var link5 = document.getElementsByClassName("link5")[0];
+
+    var link6 = document.getElementsByClassName("link6")[0];
+
+    var link7 = document.getElementsByClassName("link7")[0];
+
+    var link8 = document.getElementsByClassName("link8")[0];
+
+    var link9 = document.getElementsByClassName("link9")[0];
+
+    var link10 = document.getElementsByClassName("link10")[0];
+
+    var link11 = document.getElementsByClassName("link11")[0];
+
+    var link12 = document.getElementsByClassName("link12")[0];
+
+    var link13 = document.getElementsByClassName("link13")[0];
+
+    var link14 = document.getElementsByClassName("link14")[0];
+
+    var link15 = document.getElementsByClassName("link15")[0];
+
+    var link16 = document.getElementsByClassName("link16")[0];
+
+    var link17 = document.getElementsByClassName("link17")[0];
+
+    var link18 = document.getElementsByClassName("link18")[0];
+
+    var link19 = document.getElementsByClassName("link19")[0];
+
+    var link20 = document.getElementsByClassName("link20")[0];
+
+    var link21 = document.getElementsByClassName("link21")[0];
+
+    var linkKarta1 = document.getElementsByClassName("linkKarta1")[0];
+    var linkKarta2 = document.getElementsByClassName("linkKarta2")[0];
+
+    var iframe = document.getElementById("iframe");
+
+    link1.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevGoreck.php");
+    });
+
+    link2.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevMstislav.php");
+    });
+
+    link3.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevKrichevsk.php");
+    });
+
+    link4.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevKlimovich.php");
+    });
+
+    link5.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevHotimski.php");
+    });
+
+    link6.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevKostukovich.php");
+    });
+
+    link7.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevCherikovsk.php");
+    });
+
+    link8.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevChauski.php");
+    });
+
+    link9.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevShklovsk.php");
+    });
+
+    link10.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevKruglyansk.php");
+    });
+
+    link11.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevMogilev.php");
+    });
+
+    link12.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevSlavgorodski.php");
+    });
+
+    link13.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevKrasnopolskaya.php");
+    });
+
+    link14.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevBihov.php");
+    });
+
+    link15.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevBelinich.php");
+    });
+
+    link16.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevKlichevsk.php");
+    });
+
+    link17.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevKirovski.php");
+    });
+
+    link18.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevOsipovich.php");
+    });
+
+    link19.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevBobruisk.php");
+    });
+
+    link20.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevGlussk.php");
+    });
+
+    link21.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevDribin.php");
+    });
+
+    linkKarta1.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevKarta1.html");
+    });
+    linkKarta2.addEventListener("click", function(e) {
+      e.preventDefault();
+      showModal("infoMogilevKarta2.html");
+    });
+
+
+
+
+
+
+    close.addEventListener("click", function() {
+      hideModal();
+    });
+
+    back.addEventListener("click", function() {
+      hideModal();
+    });
+
+    function showModal(src) {
+      iframe.src = src;
+      modal.style.display = "block";
+      back.style.display = "none";
+    }
+
+    function hideModal() {
+      modal.style.display = "none";
+    }
+  });
+</script>
+
+

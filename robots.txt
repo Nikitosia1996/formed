@@ -1,0 +1,22 @@
+User-agent: Googlebot
+Allow: /
+Disallow: /protected/
+Disallow: /database/
+Disallow: /updatesDB/
+Disallow: /getfiles/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /protected/
+Disallow: /database/
+Disallow: /updatesDB/
+Disallow: /getfiles/
+
+User-agent: *
+Allow: /
+Disallow: /protected/
+Disallow: /database/
+Disallow: /updatesDB/
+Disallow: /getfiles/
+
+Sitemap: https://www.formed.by/sitemap.xml
