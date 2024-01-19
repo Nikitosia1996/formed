@@ -398,6 +398,14 @@ else {
                       case 'coursy':
                         include 'coursy.php';
                         break;
+                      case 'povishenieKvalifikacii':
+                        include 'obrcenter/povishenieKvalifikacii.php';
+                        break;
+
+                      case 'pk_kalendarMp':
+                        include 'obrcenter/povishenieKvalifikacii/pk_kalendarMp.php';
+                        break;
+
                         case 'vop':
                             include 'apivop.php';
                             break;
@@ -440,6 +448,13 @@ else {
                            case 'coursy':
                              include 'coursy.php';
                              break;
+                           case 'povishenieKvalifikacii':
+                             include 'obrcenter/povishenieKvalifikacii.php';
+                             break;
+                           case 'pk_kalendarMp':
+                             include 'obrcenter/povishenieKvalifikacii/pk_kalendarMp.php';
+                             break;
+
                              case 'vop':
                                  include 'apivop.php';
                                  break;

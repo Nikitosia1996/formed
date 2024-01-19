@@ -1,24 +1,23 @@
-<?php
-echo'<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>Каталог курсов</title>
+  <title>Повышение квалификации</title>
 </head>
 <body>
   <div class="container">
-    <h1>Каталог курсов</h1>
+    <h1>Повышение квалификации</h1>
 
     <div class="row">
       <div class="col-md-4">
         <div class="card">
           <img src="курс1.jpg" class="card-img-top" alt="Курс 1">
-          <div class="card-body" onclick="location.href=\'index.php?povishenieKvalifikacii\'">
-            <h5 class="card-title">Название курса 1</h5>
+          <div class="card-body" onclick="location.href='index.php?pk_kalendarMp'">
+            <h5 class="card-title">Календарь мероприятий + запись</h5>
             <p class="card-text">Описание курса 1</p>
-            <a href="index.php?povishenieKvalifikacii" class="btn btn-primary">Подробнее</a>
+            <a href="index.php?pk_kalendarMp" class="btn btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
@@ -52,4 +51,4 @@ echo'<!DOCTYPE html>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>';
-?>
+
