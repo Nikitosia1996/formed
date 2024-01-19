@@ -214,6 +214,10 @@ $out = '<div class="calendar-wrp">';
 return $out;
 }
 }
+
+
+
+
 $events = array(
   '16.01.2024'    => 'Заплатить ипотеку',
   '23.02.2023' => 'День защитника Отечества',
@@ -221,7 +225,7 @@ $events = array(
   '01.01.2025' => 'Новый год'
 );
 
-echo Calendar::getInterval(date('n.Y'), date('n.Y', strtotime('+12 month')), $events);
+echo Calendar::getInterval(date('n.Y'), date('n.Y', strtotime('+11 month')), $events);
 
 
 ?>
