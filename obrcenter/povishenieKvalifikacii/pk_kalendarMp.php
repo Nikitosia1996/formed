@@ -214,31 +214,23 @@ $out = '<div class="calendar-wrp">';
 return $out;
 }
 }
-$events = array(
+/*$events = array(
   '16.01.2024'    => 'Заплатить ипотеку',
   '23.02.2023' => 'День защитника Отечества',
   '19.01.2024' => 'Сегодня',
   '01.01.2025' => 'Новый год'
 );
-class DataMP{
-  public $rowDate;
-  public $rowName;
-}
+*/
 
 $dateEvent = mysqli_query($con, "SELECT   aa1_schedule_events.date  ,   aa1_events.name
                                        FROM   aa1_events   ,   aa1_schedule_events
                                        WHERE   aa1_schedule_events.id_events   =   aa1_events.id_events  ;");
-$data = [];
-while ($row = mysqli_fetch_assoc($dateEvent)) {
-  $dataMP = new DataMP();
-  $rrr =  array();
-  $rrr  = array_push($rrr,$row['date'],$row['name']);
-  $dataMP->rowDate = $row['date'];
-  $dataMP->rowName = $row['name'];
-  $events = array_push($data,$rrr);
-}
-echo json_encode($data);
 
+$events = array();
+while ($row = mysqli_fetch_assoc($dateEvent)) {
+  $date = date('d.m.Y', strtotime($row['date']));
+  $events[$date] = $row['name'];
+}
 
 
 echo Calendar::getInterval(date('n.Y'), date('n.Y', strtotime('+11 month')), $events);
