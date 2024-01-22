@@ -158,7 +158,7 @@ $out = '
       }
 
       if ($event_show) {
-      $out.= '<td class="calendar-day ' . $class . ' event">' . $day;
+        $out .= '<td class="calendar-day ' . $class . ' event" onclick="showModal()">' . $day;
         if (!empty($event_text)) {
         $out.= '<div class="calendar-popup">' . implode('<br>', $event_text) . '</div>';
         }
@@ -214,18 +214,87 @@ $out = '<div class="calendar-wrp">';
 return $out;
 }
 }
-
-
-
-
 $events = array(
   '16.01.2024'    => 'Заплатить ипотеку',
   '23.02.2023' => 'День защитника Отечества',
   '19.01.2024' => 'Сегодня',
   '01.01.2025' => 'Новый год'
 );
+class DataMP{
+  public $rowDate;
+  public $rowName;
+}
+
+$dateEvent = mysqli_query($con, "SELECT   aa1_schedule_events.date  ,   aa1_events.name
+                                       FROM   aa1_events   ,   aa1_schedule_events
+                                       WHERE   aa1_schedule_events.id_events   =   aa1_events.id_events  ;");
+$data = [];
+while ($row = mysqli_fetch_assoc($dateEvent)) {
+  $dataMP = new DataMP();
+  $rrr =  array();
+  $rrr  = array_push($rrr,$row['date'],$row['name']);
+  $dataMP->rowDate = $row['date'];
+  $dataMP->rowName = $row['name'];
+  $events = array_push($data,$rrr);
+}
+echo json_encode($data);
+
+
 
 echo Calendar::getInterval(date('n.Y'), date('n.Y', strtotime('+11 month')), $events);
 
-
 ?>
+
+
+<div id="modalZapis" class="modal">
+  <div class="modal-content">
+    <span class="close">×</span>
+    <h3>Event Registration</h3>
+    <form id="eventForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone" required><br>
+      <input type="submit" value="Register">
+    </form>
+  </div>
+</div>
+<script>
+
+  function showModal() {
+    modal.style.display = "block";
+  }
+
+  // Get the modal
+  var modal = document.getElementById("modalZapis");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Handle form submission
+  document.getElementById("eventForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    // Get the form values
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    // Do something with the form values, e.g., send them to a server for processing
+    // ...
+    // Close the modal
+    modal.style.display = "none";
+  });
+  </script>
