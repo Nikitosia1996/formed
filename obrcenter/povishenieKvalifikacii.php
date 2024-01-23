@@ -13,10 +13,10 @@
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <img src="курс1.jpg" class="card-img-top" alt="Курс 1">
+          <img src="imgs/pechat-kalendarei-1.jpg" class="card-img-top" alt="Курс 1">
           <div class="card-body" onclick="location.href='index.php?pk_kalendarMp'">
-            <h5 class="card-title">Календарь мероприятий + запись</h5>
-            <p class="card-text">Описание курса 1</p>
+            <h5 class="card-title">Календарь мероприятий</h5>
+            <p class="card-text">Здесь вы можете ознакомиться с мероприятиями и записаться.</p>
             <a href="index.php?pk_kalendarMp" class="btn btn-primary">Подробнее</a>
           </div>
         </div>
@@ -24,9 +24,9 @@
 
       <div class="col-md-4">
         <div class="card">
-          <img src="курс2.jpg" class="card-img-top" alt="Курс 2">
+          <img src="imgs/uchebnieprog.png" class="card-img-top" alt="Курс 2">
           <div class="card-body">
-            <h5 class="card-title">Название курса 2</h5>
+            <h5 class="card-title">Учебные программы</h5>
             <p class="card-text">Описание курса 2</p>
             <a href="#" class="btn btn-primary">Подробнее</a>
           </div>
@@ -35,10 +35,10 @@
 
       <div class="col-md-4">
         <div class="card">
-          <img src="курс3.jpg" class="card-img-top" alt="Курс 3">
+          <img src="imgs/docs.jpg" class="card-img-top" alt="Курс 3">
           <div class="card-body">
-            <h5 class="card-title">Название курса 3</h5>
-            <p class="card-text">Описание курса 3</p>
+            <h5 class="card-title">Необходимые документы</h5>
+            <p class="card-text">Здесь вы можете ознакомиться со всеми необходимыми документами.</p>
             <a href="#" class="btn btn-primary">Подробнее</a>
           </div>
         </div>

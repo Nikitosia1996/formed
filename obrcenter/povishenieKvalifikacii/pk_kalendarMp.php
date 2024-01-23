@@ -99,6 +99,16 @@ class Calendar
                 border-width: 9px;
                 margin-left: 0;
             }
+            .calendar-wrp{
+            width: 60%;
+            margin-left: 22%;
+            }
+            #eventForm{
+            width:50%;
+            }
+            .modalContentInside{
+            display: flex;
+            }
         </style>
         <div class="calendar-item">
             <div class="calendar-head">' . $months[$month] . ' ' . $year . '</div>
@@ -206,7 +216,7 @@ class Calendar
   }
 }
 
-$dateEvent = mysqli_query($con, "SELECT   aa1_schedule_events.date  ,   aa1_events.name
+$dateEvent = mysqli_query($con, "SELECT  aa1_events.id_events ,aa1_schedule_events.date  ,   aa1_events.name
                                        FROM   aa1_events   ,   aa1_schedule_events
                                        WHERE   aa1_schedule_events.id_events   =   aa1_events.id_events  ;");
 
@@ -217,27 +227,32 @@ while ($row = mysqli_fetch_assoc($dateEvent)) {
     $events[$date] = array();
   }
   $events[$date][] = $row['name'];
+  $eventsId = $row['id_events'];
 }
 
 ?>
 
   <div id="modalZapis" class="modal">
+    <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <span class="close">×</span>
-      <h3>Event Registration</h3>
+      <h3>Записаться на мероприятие</h3>
+      <div class="modalContentInside">
       <form id="eventForm">
-        <label for="name">Name:</label>
+        <label for="name">ФИО:</label>
         <input type="text" id="name" name="name" required><br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br>
-        <label for="phone">Phone:</label>
+        <label for="phone">Телефон:</label>
         <input type="text" id="phone" name="phone" required><br>
-        <label for="event">Event:</label>
-        <select id="event" name="event" required>
-
+        <label for="event">Мероприятие:</label>
+        <select onchange="selectedValue()" id="event" name="event" required>
         </select><br>
-        <input type="submit" value="Register">
+        <input type="submit" value="Записаться">
       </form>
+        <div id="eventDescription" style="width: 50%;"></div>
+      </div>
+    </div>
     </div>
   </div>
 
@@ -310,8 +325,29 @@ while ($row = mysqli_fetch_assoc($dateEvent)) {
         showModal();
       }
     });
+
+    /*я писала это!*/
+
+    let forDescription = document.getElementById('eventDescription');
+
+    function selectedValue(){
+      let valueSelect = document.getElementById('event');
+
+      let selectedValue1 = valueSelect.value;
+      $.ajax({
+        url: "ajax/getDiscription.php",
+        method: "GET",
+        data: {selectedValue1:selectedValue1}
+      })
+        .done(function( response ) {
+          alert("okey");
+        });
+    }
+
+
   </script>
 
 <?php
+echo '<h1 style="text-align: center; padding-bottom: 30px;">Календарь мероприятий</h1>';
 echo Calendar::getInterval(date('n.Y'), date('n.Y', strtotime('+11 month')), $events);
 ?>
