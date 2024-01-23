@@ -7,6 +7,8 @@ if (mysqli_num_rows($querrySel) > 0 ) //если получена одна ст�
   $row = mysqli_fetch_assoc($querrySel);
   $newOpisanie= $row['opisanie'];
   echo $newOpisanie;
+
+
 }
 else{
   echo "No data error";

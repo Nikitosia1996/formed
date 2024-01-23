@@ -24,92 +24,8 @@ class Calendar
 
     $month = intval($month);
     $out = '
-               <style>
-            .calendar-item {
-                width: 200px;
-                display: inline-block;
-                vertical-align: top;
-                margin: 0 16px 20px;
-                font: 14px/1.2 Arial, sans-serif;
-            }
-            .calendar-head {
-                text-align: center;
-                padding: 5px;
-                font-weight: 700;
-                font-size: 14px;
-            }
-            .calendar-item table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-            .calendar-item th {
-                font-size: 12px;
-                padding: 6px 7px;
-                text-align: center;
-                color: #888;
-                font-weight: normal;
-            }
-            .calendar-item td {
-                font-size: 13px;
-                padding: 6px 5px;
-                text-align: center;
-                border: 1px solid #ddd;
-            }
-            .calendar-item tr th:nth-child(6),
-            .calendar-item tr th:nth-child(7),
-            .calendar-item tr td:nth-child(6),
-            .calendar-item tr td:nth-child(7) {
-                color: #e65a5a;
-            }
-            .calendar-day.last {
-                color: #999 !important;
-            }
-            .calendar-day.today {
-                font-weight: bold;
-            }
-            .calendar-day.event {
-                background: #ffe2ad;
-                position: relative;
-                cursor: pointer;
-            }
-            .calendar-day.event:hover .calendar-popup {
-                display: block;
-            }
-            .calendar-popup {
-                display: none;
-                position: absolute;
-                top: 40px;
-                left: 0;
-                min-width: 200px;
-                padding: 15px;
-                background: #fff;
-                text-align: left;
-                font-size: 13px;
-                z-index: 100;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                color: #000;
-            }
-            .calendar-popup:before {
-                content: "";
-                border: solid transparent;
-                position: absolute;
-                left: 8px;
-                bottom: 100%;
-                border-bottom-color: #fff;
-                border-width: 9px;
-                margin-left: 0;
-            }
-            .calendar-wrp{
-            width: 60%;
-            margin-left: 22%;
-            }
-            #eventForm{
-            width:50%;
-            }
-            .modalContentInside{
-            display: flex;
-            }
-        </style>
+        <link rel="stylesheet" href="dist/css/obrCenter.css">
+
         <div class="calendar-item">
             <div class="calendar-head">' . $months[$month] . ' ' . $year . '</div>
             <table>
@@ -155,7 +71,7 @@ class Calendar
       }
 
       if ($event_show) {
-        $out .= '<td class="calendar-day ' . $class . ' event" onclick="showModal(this)">' . $day;
+        $out .= '<td class="calendar-day ' . $class . ' event "onclick="showModal(this)">' . $day;
         if (!empty($event_text)) {
           $out .= '<div class="calendar-popup">';
           foreach ($event_text as $text) {
@@ -181,6 +97,7 @@ class Calendar
     }
 
     $out .= '</tr></table></div>';
+
     return $out;
   }
 
@@ -236,118 +153,35 @@ while ($row = mysqli_fetch_assoc($dateEvent)) {
     <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <span class="close">×</span>
-      <h3>Записаться на мероприятие</h3>
+
       <div class="modalContentInside">
+        <div class = "formContainer">
       <form id="eventForm">
-        <label for="name">ФИО:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="phone">Телефон:</label>
-        <input type="text" id="phone" name="phone" required><br>
-        <label for="event">Мероприятие:</label>
+        <h3 style="margin-left:17%; font-weight: bold; margin-bottom: 2.5rem;">Записаться на мероприятие</h3>
+        <input placeholder="ФИО" spellcheck="true" class="form-control" type="text" id="name" name="name" required><br>
+<!--        <label for="email">Email:</label>-->
+        <input placeholder="Email"  spellcheck="true" type="email" id="email" class="form-control" name="email" required><br>
+<!--        <label for="phone">Телефон:</label>-->
+        <input placeholder="Телефон" spellcheck="true" type="text" id="phone" class="form-control" name="phone" required><br>
+        <div style="display:block;">
+        <label style="  margin-left: 20%; font-size: 20px;" for="event">Мероприятие</label><br>
         <select onchange="selectedValue()" id="event" name="event" required>
-        </select><br>
-        <input type="submit" value="Записаться">
+        </select></div><br>
+        <input id = "buttonZps" class="btn btn-primary" type="submit"  value="Записаться" onclick="validateForm()">
       </form>
-        <div id="eventDescription" style="width: 50%;"></div>
+        </div>
+        <div id="eventDescription" ></div>
       </div>
     </div>
     </div>
   </div>
 
-  <script>
-    function showModal(element) {
-      var eventPopup = element.querySelector(".calendar-popup");
-      if (eventPopup) {
-        var eventOptions = Array.from(eventPopup.querySelectorAll("div")).map(function (div) {
-          return div.textContent;
-        });
-        var eventSelect = document.getElementById("event");
-        eventSelect.innerHTML = "";
-        for (var i = 0; i < eventOptions.length; i++) {
-          var option = document.createElement("option");
-          option.value = eventOptions[i];
-          option.text = eventOptions[i];
-          eventSelect.appendChild(option);
-        }
-        modal.style.display = "block";
-      }
-    }
 
-    var modal = document.getElementById("modalZapis");
-    var span = document.getElementsByClassName("close")[0];
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-    document.getElementById("eventForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-      var name = document.getElementById("name").value;
-      var email = document.getElementById("email").value;
-      var phone = document.getElementById("phone").value;
-      var event = document.getElementById("event").value;
-      //
-      modal.style.display = "none";
-    });
-
-
-    document.querySelector(".calendar-day.event").addEventListener("mouseover", function (event) {
-      var eventPopup = event.target.querySelector(".calendar-popup");
-      if (eventPopup) {
-        eventPopup.style.display = "block";
-      }
-    });
-
-    document.querySelector(".calendar-day.event").addEventListener("mouseout", function (event) {
-      var eventPopup = event.target.querySelector(".calendar-popup");
-      if (eventPopup) {
-        eventPopup.style.display = "none";
-      }
-    });
-
-    document.querySelector(".calendar-day.event").addEventListener("click", function (event) {
-      var eventPopup = event.target.querySelector(".calendar-popup");
-      if (eventPopup) {
-        var eventOptions = eventPopup.querySelectorAll("div");
-        var eventSelect = document.getElementById("event");
-        eventSelect.innerHTML = "";
-        for (var i = 0; i < eventOptions.length; i++) {
-          var option = document.createElement("option");
-          option.value = eventOptions[i].textContent;
-          option.text = eventOptions[i].textContent;
-          eventSelect.appendChild(option);
-        }
-        showModal();
-      }
-    });
-
-    /*я писала это!*/
-
-    let forDescription = document.getElementById('eventDescription');
-
-    function selectedValue(){
-      let valueSelect = document.getElementById('event');
-
-      let selectedValue1 = valueSelect.value;
-      $.ajax({
-        url: "ajax/getDiscription.php",
-        method: "GET",
-        data: {selectedValue1:selectedValue1}
-      })
-        .done(function( response ) {
-          alert("okey");
-        });
-    }
-
-
-  </script>
 
 <?php
+
 echo '<h1 style="text-align: center; padding-bottom: 30px;">Календарь мероприятий</h1>';
 echo Calendar::getInterval(date('n.Y'), date('n.Y', strtotime('+11 month')), $events);
+echo'<script src = "dist/js/obrJs.js"> </script>';
+
 ?>
