@@ -126,6 +126,8 @@ function validateForm() {
     {
       if (response=="1ok"){
         alert('Вы успешно записаны на мероприятие');
+      } else if (response=="ipInvalid"){
+        alert('Вы уже записаны на это мероприятие');
       }
       else{
         alert('Ошибка сервера. Обратитесь к администратору');
