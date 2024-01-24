@@ -45,7 +45,36 @@ echo'<!DOCTYPE html>
         </div>
       </div>
     </div>
+
+          <div class="row">
+
+        <div class="col-md-4">
+        <div class="card">
+          <img src="imgs/aspirantura.png" class="card-img-top" alt="Курс 2">
+          <div class="card-body">
+            <h5 class="card-title">Аспирантура</h5>
+            <p class="card-text">Аспирантура является основной формой подготовки научно-педагогических и научных кадров в системе послевузовского профессионального образования и предоставляет гражданам возможность повышения уровня образования, научной, педагогической квалификации на базе высшего профессионального образования.</p>
+            <a href="#" class="btn btn-primary">Подробнее</a>
+          </div>
+        </div>
+        </div>
+
+                <div class="col-md-4">
+        <div class="card">
+          <img src="imgs/praktika.png" class="card-img-top" alt="Курс 2">
+          <div class="card-body">
+            <h5 class="card-title">Учебная/производственная практика студентов</h5>
+            <p class="card-text">Учебная практика – это, как правило, ознакомительная практика, практика по закреплению теоретических и практических знаний, по усвоению профессиональных умений, навыков.</p>
+            <a href="#" class="btn btn-primary">Подробнее</a>
+          </div>
+        </div>
+
+      </div>
   </div>
+</div>
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

@@ -406,6 +406,13 @@ else {
                         include 'obrcenter/povishenieKvalifikacii/pk_kalendarMp.php';
                         break;
 
+                      case 'kurs1':
+                        include 'obrcenter/povishenieKvalifikacii/kurs1.php';
+                        break;
+                      case 'kurs2':
+                        include 'obrcenter/povishenieKvalifikacii/kurs2.php';
+                        break;
+
                         case 'vop':
                             include 'apivop.php';
                             break;
@@ -453,6 +460,12 @@ else {
                              break;
                            case 'pk_kalendarMp':
                              include 'obrcenter/povishenieKvalifikacii/pk_kalendarMp.php';
+                             break;
+                           case 'kurs1':
+                             include 'obrcenter/povishenieKvalifikacii/kurs1.php';
+                             break;
+                           case 'kurs2':
+                             include 'obrcenter/povishenieKvalifikacii/kurs2.php';
                              break;
 
                              case 'vop':

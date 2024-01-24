@@ -126,7 +126,7 @@ function validateForm() {
     {
       if (response=="1ok"){
         alert('Вы успешно записаны на мероприятие');
-      } else if (response=="ipInvalid"){
+      } else if (response=="emailInvalid"){
         alert('Вы уже записаны на это мероприятие');
       }
       else{
