@@ -1,5 +1,6 @@
-<?php
-echo'<!DOCTYPE html>
+
+<?php ?>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -29,7 +30,7 @@ echo'<!DOCTYPE html>
           <div class="card-body">
             <h5 class="card-title">Обучающие мероприятия</h5>
             <p class="card-text">Позволяют повысить осведомленность и осознанность сотрудников, эффективность и уверенность, а также получить практические рекомендации.</p>
-            <a href="#" class="btn btn-primary">Подробнее</a>
+            <a href="index.php?obuchaushieMeropriyatiya" class="btn btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
@@ -40,7 +41,7 @@ echo'<!DOCTYPE html>
           <div class="card-body">
             <h5 class="card-title">Внутреннее обучение сотрудников РНПЦ МТ</h5>
             <p class="card-text">Внутреннее обучение представляет собой лекции, семинары, тренинги, которые проводят специалисты РНПЦ МТ.</p>
-            <a href="#" class="btn btn-primary">Подробнее</a>
+            <a href="index.php?vnutrObuchenie" class="btn btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
@@ -54,7 +55,7 @@ echo'<!DOCTYPE html>
           <div class="card-body">
             <h5 class="card-title">Аспирантура</h5>
             <p class="card-text">Аспирантура является основной формой подготовки научно-педагогических и научных кадров в системе послевузовского профессионального образования и предоставляет гражданам возможность повышения уровня образования, научной, педагогической квалификации на базе высшего профессионального образования.</p>
-            <a href="#" class="btn btn-primary">Подробнее</a>
+            <a href="index.php?aspirantura" class="btn btn-primary">Подробнее</a>
           </div>
         </div>
         </div>
@@ -65,7 +66,7 @@ echo'<!DOCTYPE html>
           <div class="card-body">
             <h5 class="card-title">Учебная/производственная практика студентов</h5>
             <p class="card-text">Учебная практика – это, как правило, ознакомительная практика, практика по закреплению теоретических и практических знаний, по усвоению профессиональных умений, навыков.</p>
-            <a href="#" class="btn btn-primary">Подробнее</a>
+            <a href="index.php?uch-proizvPractika" class="btn btn-primary">Подробнее</a>
           </div>
         </div>
 
@@ -80,5 +81,4 @@ echo'<!DOCTYPE html>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>';
-?>
+</html>

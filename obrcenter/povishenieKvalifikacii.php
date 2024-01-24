@@ -55,7 +55,7 @@
       <div class="col-md-4">
         <div class="card">
           <img src="imgs/pechat-kalendarei-1.jpg" class="card-img-top" alt="Курс 1">
-          <div class="card-body" onclick="location.href='index.php?pk_kalendarMp'">
+          <div class="card-body" >
             <h5 class="card-title">Календарь мероприятий</h5>
             <p class="card-text">Здесь вы можете ознакомиться с мероприятиями и записаться.</p>
             <a href="index.php?pk_kalendarMp" class="btn btn-primary">Подробнее</a>
@@ -69,7 +69,7 @@
           <div class="card-body">
             <h5 class="card-title">Учебные программы</h5>
             <p class="card-text">Описание курса 2</p>
-            <a href="#" class="btn btn-primary">Подробнее</a>
+            <a href="index.php?edPrograms" class="btn btn-primary" >Подробнее</a>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@
           <div class="card-body">
             <h5 class="card-title">Необходимые документы</h5>
             <p class="card-text">Здесь вы можете ознакомиться со всеми необходимыми документами.</p>
-            <a href="#" class="btn btn-primary">Подробнее</a>
+            <a href="index.php?edDocs" class="btn btn-primary">Подробнее</a>
           </div>
         </div>
       </div>

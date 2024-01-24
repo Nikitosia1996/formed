@@ -412,6 +412,55 @@ else {
                       case 'kurs2':
                         include 'obrcenter/povishenieKvalifikacii/kurs2.php';
                         break;
+                      case 'edPrograms':
+                        include 'obrcenter/povishenieKvalifikacii/edPrograms.php';
+                        break;
+                      case 'edDocs':
+                        include 'obrcenter/povishenieKvalifikacii/edDocs.php';
+                        break;
+                      case 'obuchaushieMeropriyatiya':
+                        include 'obrcenter/obuchaushieMeropriyatiya.php';
+                        break;
+                      case 'om_kalendarMp':
+                        include 'obrcenter/obuchaushieMeropriyatiya/om_kalendarMp.php';
+                        break;
+                      case 'om_Materials':
+                        include 'obrcenter/obuchaushieMeropriyatiya/om_Materials.php';
+                        break;
+                      case 'vnutrObuchenie':
+                        include 'obrcenter/vnutrObuchenie.php';
+                        break;
+                      case 'vo_kalendarMp':
+                        include 'obrcenter/vnutrObuchenie/vo_kalendarMp.php';
+                        break;
+                      case 'vo_Materials':
+                        include 'obrcenter/vnutrObuchenie/vo_Materials.php';
+                        break;
+                      case 'aspirantura':
+                        include 'obrcenter/aspirantura.php';
+                        break;
+                      case 'as_kalendarMp':
+                        include 'obrcenter/aspirantura/as_kalendarMp.php';
+                        break;
+                      case 'asDocs':
+                        include 'obrcenter/aspirantura/asDocs.php';
+                        break;
+                      case 'asQuestions':
+                        include 'obrcenter/aspirantura/asQuestions.php';
+                        break;
+                      case 'asPortfolio':
+                        include 'obrcenter/aspirantura/asPortfolio.php';
+                        break;
+                      case 'uch-proizvPractika':
+                        include 'obrcenter/uch-proizvPractika.php';
+                        break;
+                      case 'upDocs':
+                        include 'obrcenter/uch-proizvPractika/upDocs.php';
+                        break;
+                      case 'up_stranicaRractikanta':
+                        include 'obrcenter/uch-proizvPractika/up_stranicaRractikanta.php';
+                        break;
+
 
                         case 'vop':
                             include 'apivop.php';
@@ -467,6 +516,54 @@ else {
                            case 'kurs2':
                              include 'obrcenter/povishenieKvalifikacii/kurs2.php';
                              break;
+                           case 'edPrograms':
+                             include 'obrcenter/povishenieKvalifikacii/edPrograms.php';
+                             break;
+                           case 'edDocs':
+                             include 'obrcenter/povishenieKvalifikacii/edDocs.php';
+                             break;
+                           case 'obuchaushieMeropriyatiya':
+                             include 'obrcenter/obuchaushieMeropriyatiya.php';
+                             break;
+                           case 'om_kalendarMp':
+                             include 'obrcenter/obuchaushieMeropriyatiya/om_kalendarMp.php';
+                             break;
+                           case 'om_Materials':
+                             include 'obrcenter/obuchaushieMeropriyatiya/om_Materials.php';
+                             break;
+                           case 'vnutrObuchenie':
+                             include 'obrcenter/vnutrObuchenie.php';
+                             break;
+                           case 'vo_kalendarMp':
+                             include 'obrcenter/vnutrObuchenie/vo_kalendarMp.php';
+                             break;
+                           case 'vo_Materials':
+                             include 'obrcenter/vnutrObuchenie/vo_Materials.php';
+                             break;
+                           case 'aspirantura':
+                             include 'obrcenter/aspirantura.php';
+                             break;
+                           case 'as_kalendarMp':
+                             include 'obrcenter/aspirantura/as_kalendarMp.php';
+                             break;
+                           case 'asDocs':
+                             include 'obrcenter/aspirantura/asDocs.php';
+                             break;
+                           case 'asQuestions':
+                             include 'obrcenter/aspirantura/asQuestions.php';
+                             break;
+                           case 'asPortfolio':
+                             include 'obrcenter/aspirantura/asPortfolio.php';
+                             break;
+                           case 'uch-proizvPractika':
+                             include 'obrcenter/uch-proizvPractika.php';
+                             break;
+                           case 'upDocs':
+                             include 'obrcenter/uch-proizvPractika/upDocs.php';
+                             break;
+                           case 'up_stranicaRractikanta':
+                             include 'obrcenter/uch-proizvPractika/up_stranicaRractikanta.php';
+                             break;
 
                              case 'vop':
                                  include 'apivop.php';
@@ -480,6 +577,7 @@ else {
                              case 'clinical_protocols':
                                  include 'clinical_protocols.php';
                                  break;
+
                             default:
                                 include 'api.php';
                          }
