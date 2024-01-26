@@ -26,9 +26,9 @@
         data:{loginUser:loginUser}
       }).done(function (response)
       {
-        let data = JSON.parse(response); // Parse the JSON response
+        let data = JSON.parse(response);
 
-        if (data.id_role == 600) {
+        if (data.id_role == 600 || data.id_role == 500) {
           let id = element.id.match(/\d+/)[0];
           if(data.spisok_kursov.split(";").indexOf(id.toString()) !== -1){
             location.href = 'index.php?kurs'+id;
@@ -36,7 +36,6 @@
           else {
             alert ("Вам недоступен этот курс");
           }
-
         }
         else {
           alert ("Вам недоступен этот курс");

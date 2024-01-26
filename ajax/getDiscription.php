@@ -15,4 +15,9 @@ if (mysqli_num_rows($querrySel) > 0 ) //если получена одна ст�
 else{
   $response['error'] = "No data error";
 }
+foreach ($response as $key => $value) {
+  if ($value === null) {
+    $response[$key] = "";
+  }
+}
 echo json_encode($response);

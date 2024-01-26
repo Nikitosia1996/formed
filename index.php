@@ -398,6 +398,9 @@ else {
                       case 'coursy':
                         include 'coursy.php';
                         break;
+                      case 'adminkursov':
+                        include 'obrcenter/adminKursov/adminKursov.php';
+                        break;
                       case 'povishenieKvalifikacii':
                         include 'obrcenter/povishenieKvalifikacii.php';
                         break;
@@ -503,6 +506,9 @@ else {
                                  break;
                            case 'coursy':
                              include 'coursy.php';
+                             break;
+                           case 'adminkursov':
+                             include 'obrcenter/adminKursov/adminKursov.php';
                              break;
                            case 'povishenieKvalifikacii':
                              include 'obrcenter/povishenieKvalifikacii.php';

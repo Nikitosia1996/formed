@@ -10,56 +10,58 @@ if (mysqli_num_rows($querrySel) > 0 ) {
   $allowedCourses = explode(";", $response['spisok_kursov']);
   $courseId = 1;
 
-  if (in_array($courseId, $allowedCourses)) {
-    echo "
+if (in_array($courseId, $allowedCourses) && ($response['id_role'] == 500 || $response['id_role'] == 600))
+  {
+    echo '
       <!DOCTYPE html>
-      <html lang='ru'>
+      <html lang="ru">
       <head>
-        <meta charset='UTF-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>Курс 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Панель Администратора</title>
       </head>
       <body>
-        <div class='container'>
-          <h1>Курс 1</h1>
+        <div class="container">
+          <h1> курс1</h1>
+
         </div>
       </body>
       </html>
-    ";
+    ';
   } else {
-    echo "
+  echo '
       <!DOCTYPE html>
-      <html lang='ru'>
+      <html lang="ru">
       <head>
-        <meta charset='UTF-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>Недоступный курс</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Недоступная страница</title>
       </head>
       <body>
-        <div class='container'>
-          <h1>Недоступный курс</h1>
-          <p>Вам недоступен этот курс.</p>
+        <div class="container">
+          <h1></h1>
+          <p>Вам недоступна  эта страница.</p>
         </div>
       </body>
       </html>
-    ";
-  }
+    ';
+}
 } else {
-  echo "
+  echo '
     <!DOCTYPE html>
-    <html lang='ru'>
+    <html lang="ru">
     <head>
-      <meta charset='UTF-8'>
-      <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Неавторизированный пользователь</title>
     </head>
     <body>
-      <div class='container'>
+      <div class="container">
         <h1>Неавторизированный пользователь</h1>
         <p>Вы не авторизированы.</p>
       </div>
     </body>
     </html>
-  ";
+  ';
 }
 ?>
