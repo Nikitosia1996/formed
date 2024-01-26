@@ -71,7 +71,8 @@ class Calendar
       }
 
       if ($event_show) {
-        $out .= '<td class="calendar-day ' . $class . ' event "onclick="showModal(this)">' . $day;
+        $date = sprintf('%02d.%02d.%04d', $day, $month, $year);
+        $out .= '<td class="calendar-day ' . $class . ' event "onclick="showModal(this)" id = "' . $date . '">' . $day;
         if (!empty($event_text)) {
           $out .= '<div class="calendar-popup">';
           foreach ($event_text as $text) {
@@ -167,6 +168,8 @@ while ($row = mysqli_fetch_assoc($dateEvent)) {
         <label style="  margin-left: 20%; font-size: 20px;" for="event">Мероприятие</label><br>
         <select onchange="selectedValue()" id="event" name="event" required>
         </select></div><br>
+        <label style="  margin-left: 20%; font-size: 20px;" for="event" >Дата мероприятия</label><br>
+        <input  type="date" id="dateMP" class="form-control" name="date" disabled="true"><br>
         <input id = "buttonZps" class="btn btn-primary" type="submit"  value="Записаться" onclick="validateForm()">
       </form>
         </div>

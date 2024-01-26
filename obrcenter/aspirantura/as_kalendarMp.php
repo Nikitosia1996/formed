@@ -167,6 +167,7 @@ while ($row = mysqli_fetch_assoc($dateEvent)) {
         <label style="  margin-left: 20%; font-size: 20px;" for="event">Мероприятие</label><br>
         <select onchange="selectedValue()" id="event" name="event" required>
         </select></div><br>
+
         <input id = "buttonZps" class="btn btn-primary" type="submit"  value="Записаться" onclick="validateForm()">
       </form>
         </div>

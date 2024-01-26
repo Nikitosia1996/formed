@@ -86,38 +86,36 @@
       </div>
     </div>
 
-    <div class="row">
+    <?PHP
+    $sql = "SELECT * FROM aa1_events";
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+      $counter = 0;
+      while($row = $result->fetch_assoc()) {
+        if ($counter % 3 == 0) {
+          echo "<div class='row'>";
+        }
 
-      <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/kurs1.png" class="card-img-top" alt="Курс 1" >
-          <div class="card-body" >
-            <h5 class="card-title" >Учебный курс 1</h5>
-            <p class="card-text">Здесь должна быть информация о курсе.</p>
-            <a id="uchebKurs1" href="#" class="btn btn-primary" onclick="logKurs(this)">Подробнее</a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/kurs2.jpg" class="card-img-top" alt="Курс 2">
-          <div class="card-body">
-            <h5 class="card-title"  >Учебный курс 2</h5>
-            <p class="card-text">Здесь должна быть информация о курсе.</p>
-            <a id="uchebKurs2" onclick="logKurs(this)" href="#" class="btn btn-primary">Подробнее</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
+        echo '<div class="col-md-4"> <div class="card"> <img src="imgs/' . $row['kartinka'] . '" class="card-img-top">  <div class="card-body">
+              <h5 class="card-title"  >'. $row['name'] .'</h5> <p class="card-text">'. $row['bodyOpisanie'] .'</p>
+               <a id="uchebKurs'.$row['id_events'] .'" onclick="logKurs(this)" href="#" class="btn btn-primary">Подробнее</a>
+               </div>
+                </div>
+                 </div>
+          ';
+        $counter++;
+        if ($counter % 3 == 0) {
+          echo "</div>";
+        }
+      }
+      if ($counter % 3 != 0) {
+        echo "</div>";
+      }
+    } else {
+      echo "Нет данных";
+    }
+    ?>
   </div>
-
-
-
-
-
 </body>
 </html>
 

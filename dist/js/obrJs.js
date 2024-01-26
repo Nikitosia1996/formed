@@ -5,6 +5,7 @@ function showModal(element) {
       return div.textContent;
     });
     var eventSelect = document.getElementById("event");
+
     eventSelect.innerHTML = "";
     for (var i = 0; i < eventOptions.length; i++) {
       var option = document.createElement("option");
@@ -14,6 +15,15 @@ function showModal(element) {
     }
     modal.style.display = "block";
     selectedValue();
+
+    var dateParts = element.id.split('.');
+    var year = dateParts[2];
+    var month = dateParts[1];
+    var day = dateParts[0];
+    var formattedDate = year + '-' + month + '-' + day;
+
+    var inputForDate = document.getElementById("dateMP");
+    inputForDate.value = formattedDate;
   }
 }
 
@@ -82,7 +92,8 @@ function selectedValue(){
     data: {selectedValue1:selectedValue1}
   })
     .done(function( response ) {
-      forDescription.innerHTML = response;
+      let data = JSON.parse(response);
+      forDescription.innerHTML = '<div class = "obshDiv"><div class="nameK"> '+ data.name +' </div><div class="headerK">' + data.headerOpisanie +' </div>  <div class = "bodyK">' + data.bodyOpisanie + '</div> <div class = "cenaK">' + data.cenaOpisanie + '</div></div>';
     });
 }
 function validateForm() {
@@ -91,10 +102,12 @@ function validateForm() {
   let emailInput = document.getElementById('email');
   let phoneInput = document.getElementById('phone');
   let valueSelect = document.getElementById('event');
+  let dateMPInput = document.getElementById('dateMP');
   let selectedValue1 = valueSelect.value;
   let name = nameInput.value;
   let email = emailInput.value;
   let phone = phoneInput.value;
+  let dateMP = dateMPInput.value;
 
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -121,7 +134,7 @@ function validateForm() {
     $.ajax({
       url: "ajax/insertInfoPovishenie.php",
       method: "GET",
-      data: {name:name , email:email, phone:phone, selectedValue1:selectedValue1}
+      data: {name:name , email:email, phone:phone, selectedValue1:selectedValue1 , dateMP:dateMP}
     }).done(function (response)
     {
       if (response=="1ok"){
