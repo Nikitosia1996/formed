@@ -15,7 +15,7 @@
     {
       let loginUser = getCookie('login');
       if (getCookie('login') === undefined ){
-        alert  ("ne login");
+        alert  ("Вы не авторизированы");
 
       }
       else{

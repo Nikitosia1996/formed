@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
   <title>Образовательный центр</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
       <div class="col-md-4">
         <div class="card">
           <img src="imgs/povishenie.jpg" class="card-img-top" alt="Повышение квалификации">
-          <div class="card-body" onclick="location.href=\'index.php?povishenieKvalifikacii\'">
+          <div class="card-body">
             <h5 class="card-title">Повышение квалификации</h5>
             <p class="card-text">Повышение квалификации обеспечивает углубление профессиональных знаний и умений и является обязательным для каждого специалиста.</p>
             <a href="index.php?povishenieKvalifikacii" class="btn btn-primary">Подробнее</a>
@@ -73,12 +73,5 @@
       </div>
   </div>
 </div>
-
-
-
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
