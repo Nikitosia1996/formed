@@ -13,6 +13,14 @@ if (mysqli_num_rows($querrySel) > 0) {
       <!DOCTYPE html>
       <html lang="ru">
       <head>
+     <style>
+     .table thead th {
+     border: 2px solid #dee2e6;
+     }
+     .table td {
+     border: 2px solid #dee2e6;
+     }
+     </style>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Панель Администратора</title>
@@ -21,7 +29,7 @@ if (mysqli_num_rows($querrySel) > 0) {
         <div class="container">
           <h1>Панель Администратора</h1>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Открыть модальное окно
+            Записи через календарь мероприятий
           </button>
 
           <!-- Модальное окно -->
@@ -36,7 +44,11 @@ if (mysqli_num_rows($querrySel) > 0) {
                 </div>
                 <div class="modal-body">';
     include "connection.php";
-    $query = mysqli_query($con, "SELECT * FROM aa1_povishenie_events_visitors");
+    $query = mysqli_query($con, "SELECT aa1_povishenie_events_visitors.*,
+     aa1_events.name AS event_name
+    FROM aa1_povishenie_events_visitors
+    INNER JOIN aa1_events
+        ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events");
     echo '<table class="table table-striped">';
     echo '<thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>ID Events</th><th>IP Address</th><th>Date Kursa</th></tr></thead>';
     echo '<tbody>';
@@ -46,13 +58,39 @@ if (mysqli_num_rows($querrySel) > 0) {
       echo '<td>'.$row['name'].'</td>';
       echo '<td>'.$row['email'].'</td>';
       echo '<td>'.$row['phone'].'</td>';
-      echo '<td>'.$row['id_events'].'</td>';
+      echo '<td>'.$row['event_name'].'</td>';
       echo '<td>'.$row['ip_address'].'</td>';
       echo '<td>'.$row['date_kursa'].'</td>';
       echo '</tr>';
     }
     echo '</tbody>';
     echo '</table>';
+
+    echo '<hr>';
+
+    $query = mysqli_query($con, "SELECT aa1_povishenie_events_visitors.id_events,
+       aa1_events.name, COUNT(*) AS count_users
+FROM aa1_povishenie_events_visitors
+    INNER JOIN aa1_events
+        ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events
+GROUP BY aa1_povishenie_events_visitors.id_events");
+    echo '<table class="table table-striped">';
+    echo '<thead><tr><th>Event Name</th><th>Количество пользователей</th></tr></thead>';
+    echo '<tbody>';
+    while ($row = mysqli_fetch_assoc($query)) {
+      echo '<tr>';
+      echo '<td>'.$row['name'].'</td>';
+      echo '<td>'.$row['count_users'].'</td>';
+      echo '</tr>';
+    }
+    echo '</tbody>';
+    echo '</table>';
+
+    $query = mysqli_query($con, "SELECT SUM(count_users) AS total_users FROM (SELECT aa1_povishenie_events_visitors.id_events, COUNT(*) AS count_users FROM aa1_povishenie_events_visitors INNER JOIN aa1_events ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events GROUP BY aa1_povishenie_events_visitors.id_events) AS t");
+    $row = mysqli_fetch_assoc($query);
+    echo '<p><b>Общая количество пользователей по всем мероприятиям: '.$row['total_users'].'</b></p>';
+
+
     echo '
                 </div>
                 <div class="modal-footer">
