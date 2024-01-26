@@ -1,5 +1,6 @@
 <?php
 include 'connection.php';
+if (isset($_COOKIE['login'])) {
 $loginUser = $_COOKIE['login'];
 $response = array();
 $querrySel = mysqli_query($con, "SELECT * FROM   users   WHERE login='$loginUser'");
@@ -63,4 +64,24 @@ if (mysqli_num_rows($querrySel) > 0 ) {
     </html>
   ';
 }
+}
+else{
+  echo '
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Неавторизированный пользователь</title>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Неавторизированный пользователь</h1>
+        <p>Вы не авторизированы.</p>
+      </div>
+    </body>
+    </html>
+  ';
+}
+?>
 ?>

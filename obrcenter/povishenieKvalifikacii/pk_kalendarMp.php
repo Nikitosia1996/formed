@@ -134,13 +134,12 @@ class Calendar
   }
 }
 
-$dateEvent = mysqli_query($con, "SELECT  aa1_events.id_events ,aa1_schedule_events.date  ,   aa1_events.name
-                                       FROM   aa1_events   ,   aa1_schedule_events
-                                       WHERE   aa1_schedule_events.id_events   =   aa1_events.id_events  ;");
+$dateEvent = mysqli_query($con, "SELECT  aa1_events.id_events ,aa1_events.date_kursa  ,   aa1_events.name
+                                       FROM   aa1_events ;");
 
 $events = array();
 while ($row = mysqli_fetch_assoc($dateEvent)) {
-  $date = date('d.m.Y', strtotime($row['date']));
+  $date = date('d.m.Y', strtotime($row['date_kursa']));
   if (!array_key_exists($date, $events)) {
     $events[$date] = array();
   }

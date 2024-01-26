@@ -1,4 +1,30 @@
 function showModal(element) {
+
+
+  var dateParts = element.id.split('.');
+  var year = dateParts[2];
+  var month = dateParts[1];
+  var day = dateParts[0];
+  var formattedDate = year + '-' + month + '-' + day;
+let segodnya = new Date();
+  function formatDate(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+  console.log(formatDate(segodnya));
+  let nowdate = formatDate(segodnya);
+
+if(formattedDate>nowdate){
+
   var eventPopup = element.querySelector(".calendar-popup");
   if (eventPopup) {
     var eventOptions = Array.from(eventPopup.querySelectorAll("div")).map(function (div) {
@@ -16,15 +42,12 @@ function showModal(element) {
     modal.style.display = "block";
     selectedValue();
 
-    var dateParts = element.id.split('.');
-    var year = dateParts[2];
-    var month = dateParts[1];
-    var day = dateParts[0];
-    var formattedDate = year + '-' + month + '-' + day;
-
     var inputForDate = document.getElementById("dateMP");
     inputForDate.value = formattedDate;
-  }
+  }}
+else {
+  alert('Событие прошло')
+}
 }
 
 var modal = document.getElementById("modalZapis");

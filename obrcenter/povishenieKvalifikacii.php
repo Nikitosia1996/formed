@@ -86,7 +86,8 @@
     </div>
 
     <?PHP
-    $sql = "SELECT * FROM aa1_events";
+
+    $sql = "SELECT * FROM `aa1_events` WHERE endKurs > DATE_FORMAT(NOW(), '%Y-%m-%d')";
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
       $counter = 0;
@@ -94,9 +95,18 @@
         if ($counter % 3 == 0) {
           echo "<div class='row'>";
         }
+        $today = date("d.m.Y");
+        $formattedDate = date('d.m.Y', strtotime($row['date_kursa']));
+        $nachaloidet = ' ';
+        if ($formattedDate>$today){
+          $nachaloidet = 'Начало курса: '. $formattedDate .'';
+        }
+        else{
+          $nachaloidet = 'Курс идет';
+        }
 
         echo '<div class="col-md-4"> <div class="card"> <img src="imgs/' . $row['kartinka'] . '" class="card-img-top">  <div class="card-body">
-              <h5 class="card-title"  >'. $row['name'] .'</h5> <p class="card-text">'. $row['bodyOpisanie'] .'</p>
+              <h5 class="card-title"  >'. $row['name'] .'</h5> <p class="card-text">'. $row['bodyOpisanie'] .'</p><p class="card-text">'. $nachaloidet .'</p>
                <a id="uchebKurs'.$row['id_events'] .'" onclick="logKurs(this)" href="#" class="btn btn-primary">Подробнее</a>
                </div>
                 </div>

@@ -14,13 +14,17 @@ if (mysqli_num_rows($checkIpQuery) > 0) {
   echo "ipInvalid";
 } else {
 */
-$emailUser = mysqli_query($con, "SELECT * FROM aa1_povishenie_events_visitors WHERE email = '$email'");
-if (mysqli_num_rows($emailUser) > 0) {
+$emailUser = mysqli_query($con, "SELECT aa1_povishenie_events_visitors.* , aa1_events.name
+    FROM aa1_povishenie_events_visitors
+    INNER JOIN aa1_events
+        ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events
+        WHERE aa1_povishenie_events_visitors.email = '$email' and aa1_events.date_kursa = '$dateMP' and aa1_events.name  = '$selectedValue1' ");
+if (mysqli_num_rows($emailUser) > 0 ) {
 
   echo "emailInvalid";
 } else {
 
-$querrySel = mysqli_query($con, "SELECT * FROM `aa1_events` WHERE name='$selectedValue1'");
+$querrySel = mysqli_query($con, "SELECT * FROM `aa1_events` WHERE name='$selectedValue1' and date_kursa = '$dateMP'");
 if (mysqli_num_rows($querrySel) > 0 ) //если получена одна строка
 {
   $row = mysqli_fetch_assoc($querrySel);
