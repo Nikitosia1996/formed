@@ -5,16 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Обучающие мероприятия</title>
+  <title>Учебная/производственная практика студентов</title>
 </head>
 <body>
   <div class="container">
-    <h1>Обучающие мероприятия</h1>
+    <h1>Учебная/производственная практика студентов</h1>
 
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <img src="../imgs/pechat-kalendarei-1.jpg" class="card-img-top" alt="Курс 1">
+          <img src="../imgs/docs.jpg" class="card-img-top" alt="Курс 1">
           <div class="card-body" >
             <h5 class="card-title">Необходимые документы</h5>
             <p class="card-text">Здесь вы можете найти все необходимые документы.</p>

@@ -24,7 +24,7 @@ class Calendar
 
     $month = intval($month);
     $out = '
-        <link rel="stylesheet" href="../../dist/css/obrCenter.css">
+        <link rel="stylesheet" href="dist/css/obrCenter.css">
 
         <div class="calendar-item">
             <div class="calendar-head">' . $months[$month] . ' ' . $year . '</div>
@@ -71,7 +71,8 @@ class Calendar
       }
 
       if ($event_show) {
-        $out .= '<td class="calendar-day ' . $class . ' event "onclick="showModal(this)">' . $day;
+        $date = sprintf('%02d.%02d.%04d', $day, $month, $year);
+        $out .= '<td class="calendar-day ' . $class . ' event "onclick="showModal(this)" id = "' . $date . '">' . $day;
         if (!empty($event_text)) {
           $out .= '<div class="calendar-popup">';
           foreach ($event_text as $text) {
@@ -133,13 +134,12 @@ class Calendar
   }
 }
 
-$dateEvent = mysqli_query($con, "SELECT  aa1_events.id_events ,aa1_schedule_events.date  ,   aa1_events.name
-                                       FROM   aa1_events   ,   aa1_schedule_events
-                                       WHERE   aa1_schedule_events.id_events   =   aa1_events.id_events  ;");
+$dateEvent = mysqli_query($con, "SELECT  aa1_events.id_events ,aa1_events.date_kursa  ,   aa1_events.name
+                                       FROM   aa1_events WHERE id_blog=3;");
 
 $events = array();
 while ($row = mysqli_fetch_assoc($dateEvent)) {
-  $date = date('d.m.Y', strtotime($row['date']));
+  $date = date('d.m.Y', strtotime($row['date_kursa']));
   if (!array_key_exists($date, $events)) {
     $events[$date] = array();
   }
@@ -149,32 +149,34 @@ while ($row = mysqli_fetch_assoc($dateEvent)) {
 
 ?>
 
-  <div id="modalZapis" class="modal">
-    <div class="modal-dialog modal-xl">
+<div id="modalZapis" class="modal">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <span class="close">×</span>
 
       <div class="modalContentInside">
         <div class = "formContainer">
-      <form id="eventForm">
-        <h3 style="margin-left:17%; font-weight: bold; margin-bottom: 2.5rem;">Записаться на мероприятие</h3>
-        <input placeholder="ФИО" spellcheck="true" class="form-control" type="text" id="name" name="name" required><br>
-<!--        <label for="email">Email:</label>-->
-        <input placeholder="Email"  spellcheck="true" type="email" id="email" class="form-control" name="email" required><br>
-<!--        <label for="phone">Телефон:</label>-->
-        <input placeholder="Телефон" spellcheck="true" type="text" id="phone" class="form-control" name="phone" required><br>
-        <div style="display:block;">
-        <label style="  margin-left: 20%; font-size: 20px;" for="event">Мероприятие</label><br>
-        <select onchange="selectedValue()" id="event" name="event" required>
-        </select></div><br>
-        <input id = "buttonZps" class="btn btn-primary" type="submit"  value="Записаться" onclick="validateForm()">
-      </form>
+          <form id="eventForm">
+            <h3 style="margin-left:17%; font-weight: bold; margin-bottom: 2.5rem;">Записаться на мероприятие</h3>
+            <input placeholder="ФИО" spellcheck="true" class="form-control" type="text" id="name" name="name" required><br>
+            <!--        <label for="email">Email:</label>-->
+            <input placeholder="Email"  spellcheck="true" type="email" id="email" class="form-control" name="email" required><br>
+            <!--        <label for="phone">Телефон:</label>-->
+            <input placeholder="Телефон" spellcheck="true" type="text" id="phone" class="form-control" name="phone" required><br>
+            <div style="display:block;">
+              <label style="  margin-left: 20%; font-size: 20px;" for="event">Мероприятие</label><br>
+              <select onchange="selectedValue()" id="event" name="event" required>
+              </select></div><br>
+            <label style="  margin-left: 20%; font-size: 20px;" for="event" >Дата мероприятия</label><br>
+            <input  type="date" id="dateMP" class="form-control" name="date" disabled="true"><br>
+            <input id = "buttonZps" class="btn btn-primary" type="submit"  value="Записаться" onclick="validateForm()">
+          </form>
         </div>
         <div id="eventDescription" ></div>
       </div>
     </div>
-    </div>
   </div>
+</div>
 
 
 
@@ -182,6 +184,6 @@ while ($row = mysqli_fetch_assoc($dateEvent)) {
 
 echo '<h1 style="text-align: center; padding-bottom: 30px;">Календарь мероприятий</h1>';
 echo Calendar::getInterval(date('n.Y'), date('n.Y', strtotime('+11 month')), $events);
-echo '<script src = "../../dist/js/obrJs.js"> </script>';
+echo'<script src = "dist/js/obrJs.js"> </script>';
 
 ?>

@@ -8,17 +8,17 @@ $dateMP = $_GET['dateMP'];
 
 $selectedValue1 = $_GET['selectedValue1'];
 
-/*$checkIpQuery = mysqli_query($con, "SELECT * FROM aa1_povishenie_events_visitors WHERE ip_address = '$ipAddress'");
+/*$checkIpQuery = mysqli_query($con, "SELECT * FROM aa1_events_visitors WHERE ip_address = '$ipAddress'");
 if (mysqli_num_rows($checkIpQuery) > 0) {
 
   echo "ipInvalid";
 } else {
 */
-$emailUser = mysqli_query($con, "SELECT aa1_povishenie_events_visitors.* , aa1_events.name
-    FROM aa1_povishenie_events_visitors
+$emailUser = mysqli_query($con, "SELECT aa1_events_visitors.* , aa1_events.name
+    FROM aa1_events_visitors
     INNER JOIN aa1_events
-        ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events
-        WHERE aa1_povishenie_events_visitors.email = '$email' and aa1_events.date_kursa = '$dateMP' and aa1_events.name  = '$selectedValue1' ");
+        ON aa1_events_visitors.id_events = aa1_events.id_events
+        WHERE aa1_events_visitors.email = '$email' and aa1_events.date_kursa = '$dateMP' and aa1_events.name  = '$selectedValue1' ");
 if (mysqli_num_rows($emailUser) > 0 ) {
 
   echo "emailInvalid";
@@ -29,8 +29,9 @@ if (mysqli_num_rows($querrySel) > 0 ) //если получена одна ст�
 {
   $row = mysqli_fetch_assoc($querrySel);
   $id_events= $row['id_events'];
-  $intertZapis = mysqli_query($con, "INSERT INTO aa1_povishenie_events_visitors (name,email,phone, id_events , date_kursa)
- values ('$name', '$email','$phone', '$id_events' , '$dateMP')");
+  $id_blog= $row['id_blog'];
+  $intertZapis = mysqli_query($con, "INSERT INTO aa1_events_visitors (name,email,phone, id_events , date_kursa, id_blog)
+ values ('$name', '$email','$phone', '$id_events' , '$dateMP', '$id_blog')");
   echo "1ok";
 }
 else{

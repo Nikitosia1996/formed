@@ -1,11 +1,43 @@
-
-<?php ?>
+<?php
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script>
+    function getCookie(name) {
+      let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    function insertBut()
+    {
+      let loginUser = getCookie('login');
+      if (loginUser) {
+        $.ajax({
+          url: "ajax/getUserInfo.php",
+          method: "GET",
+          data: {loginUser: loginUser}
+        }).done(function (response) {
+          let data = JSON.parse(response);
+
+          if (data.id_role == 500) {
+            let butForAdmin = document.createElement("a");
+            butForAdmin.innerText = 'Перейти на панель <br>администратора';
+            let pole = document.getElementsByClassName('content-wrapper');
+            let vstavka = pole[0];
+            vstavka.append('butForAdmin')
+          }
+
+        });
+      }
+    }
+    window.addEventListener('load', () => {
+      insertBut();
+    });
+  </script>
   <title>Образовательный центр</title>
 </head>
 <body>

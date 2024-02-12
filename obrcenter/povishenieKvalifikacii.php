@@ -67,7 +67,7 @@
           <img src="imgs/uchebnieprog.png" class="card-img-top" alt="Курс 2">
           <div class="card-body">
             <h5 class="card-title">Учебные программы</h5>
-            <p class="card-text">Описание курса 2</p>
+            <p class="card-text">Здесь вы можете ознакомиться со списком учебных программ.</p>
             <a href="index.php?edPrograms" class="btn btn-primary" >Подробнее</a>
           </div>
         </div>

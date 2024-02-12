@@ -135,7 +135,7 @@ class Calendar
 }
 
 $dateEvent = mysqli_query($con, "SELECT  aa1_events.id_events ,aa1_events.date_kursa  ,   aa1_events.name
-                                       FROM   aa1_events ;");
+                                       FROM   aa1_events WHERE id_blog=1;");
 
 $events = array();
 while ($row = mysqli_fetch_assoc($dateEvent)) {

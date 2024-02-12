@@ -208,7 +208,7 @@
               <h2>Образовательные курсы</h2>
             </div>
               <!-- DIRECT CHAT -->
-            <div class="card direct-chat direct-chat-primary" style="height: 700px">
+            <div class="card direct-chat direct-chat-primary" style="height: 700px; display:none;">
               <div class="card-header" style="background-color: #0c525d; color: white;">
                 <h3 class="card-title">Новости</h3>
 

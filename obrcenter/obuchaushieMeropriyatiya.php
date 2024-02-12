@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <img src="../imgs/pechat-kalendarei-1.jpg" class="card-img-top" alt="Курс 1">
+          <img src="../imgs/docs.jpg" class="card-img-top" alt="Курс 1">
           <div class="card-body" >
             <h5 class="card-title">Календарь мероприятий</h5>
             <p class="card-text">Здесь вы можете ознакомиться с мероприятиями и записаться.</p>
