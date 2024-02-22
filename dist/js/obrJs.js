@@ -102,8 +102,6 @@ document.querySelector(".calendar-day.event").addEventListener("click", function
 });
 
 
-/*я писала это!*/
-
 function selectedValue(){
   let forDescription = document.getElementById('eventDescription');
   forDescription.innerHTML  = '';
@@ -174,3 +172,4 @@ function validateForm() {
 
   return isValid;
 }
+

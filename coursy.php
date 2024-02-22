@@ -24,11 +24,15 @@
           let data = JSON.parse(response);
 
           if (data.id_role == 500) {
-            let butForAdmin = document.createElement("a");
-            butForAdmin.innerText = 'Перейти на панель <br>администратора';
+            let butForAdmin = document.createElement('a');
+            butForAdmin.innerText = 'Перейти на панель администратора';
+            butForAdmin.href = 'index.php?adminkursov';
+            butForAdmin.classList.add('btn');
+            butForAdmin.classList.add('btn-primary');
+            butForAdmin.style.cssText = 'position: absolute; top: 80px; right: 274px;'
             let pole = document.getElementsByClassName('content-wrapper');
             let vstavka = pole[0];
-            vstavka.append('butForAdmin')
+            vstavka.append(butForAdmin);
           }
 
         });
@@ -42,6 +46,7 @@
 </head>
 <body>
   <div class="container">
+    <div id="butForAdmin"></div>
     <h1 style="text-align: center; padding-bottom: 30px;">Образовательный центр</h1>
 
     <div class="row">

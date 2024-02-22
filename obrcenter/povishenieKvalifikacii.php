@@ -87,7 +87,7 @@
 
     <?PHP
 
-    $sql = "SELECT * FROM `aa1_events` WHERE endKurs > DATE_FORMAT(NOW(), '%Y-%m-%d')";
+    $sql = "SELECT * FROM `aa1_events` WHERE id_blog=1  AND endKurs > DATE_FORMAT(NOW(), '%Y-%m-%d')";
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
       $counter = 0;

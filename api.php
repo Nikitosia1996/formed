@@ -205,7 +205,7 @@
                   <h2>Виртуальный консультант Флоренс</h2>
               </div>
             <div class="card card1" onclick="location.href='index.php?coursy'" style="background: url('/imgs/onlineeducationr.png'); background-repeat: no-repeat; background-color: #e0e0e2;">
-              <h2>Образовательные курсы</h2>
+              <h2>Образовательный центр</h2>
             </div>
               <!-- DIRECT CHAT -->
             <div class="card direct-chat direct-chat-primary" style="height: 700px; display:none;">
