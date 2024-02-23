@@ -13,7 +13,6 @@ $query = "SELECT aa1_practikant.*
         ON aa1_practikant.id_user = users.id_user
         WHERE users.login = '$loginUser' ";
 
-
 $rez = mysqli_query($con, $query) or die("Ошибка " . mysqli_error($con));
 
 

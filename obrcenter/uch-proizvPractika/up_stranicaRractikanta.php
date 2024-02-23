@@ -80,7 +80,7 @@
       });
       }
     window.onload = insertSomeInfo;
-    //---
+    //-
     function addFile(input) {
       let loginUser = getCookie('login');
       let divA = input.previousElementSibling;

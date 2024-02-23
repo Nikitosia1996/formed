@@ -12,8 +12,6 @@ if (mysqli_num_rows($querryPractikant) > 0 ) //если получена одн�
   $response['level'] = $row['level'];
   $response['otzivPract'] = $row['otzivPract'];
   $response['otchetPract'] = $row['otchetPract'];
-
-
   $response['uniname'] = $row['uniname'];
 }
 else{
