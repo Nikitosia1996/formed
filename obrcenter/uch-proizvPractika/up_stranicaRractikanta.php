@@ -50,14 +50,28 @@
         labelName.value = data.name;
         labelLevel.value = data.level;
         labelUniversity.value = data.uniname;
-        let otzivPractFiles = data.otzivPract.split(';');
-        otzivPractFiles.forEach(function (file) {
-          divForOtchet.insertAdjacentHTML("beforeend", "<a target='_blank' href='/docs/practikant/" + loginUser + "/" + file + "'>" + file + "</a><br>");
-        });
+
+
+
         let otchetPractFiles = data.otchetPract.split(';');
-        otchetPractFiles.forEach(function (file) {
-          divFile_otchet.insertAdjacentHTML("beforeend", "<a target='_blank' href='/docs/practikant/" + loginUser + "/" + file + "'>" + file + "</a><br>");
+        otchetPractFiles.forEach((file,index) => {
+          if(index != otchetPractFiles.length - 1) {
+            divFile_otchet.insertAdjacentHTML("beforeend", "<div class = 'file-container'><a target='_blank' href='/docs/practikant/" + loginUser + "/" + file + "'>" + file + "</a>" +
+              "<span onclick='z_deleteFile(\"" + file + "\", \"otchetPract\" );' class='delete-file' id='otchetPract" + file + "' style='cursor: pointer; padding-left: 10px;'>×</span></div>");
+          }
+
         });
+        let otzivPractFiles = data.otzivPract.split(';');
+        otzivPractFiles.forEach((file,index) => {
+          if(index != otzivPractFiles.length - 1) {
+            divForOtchet.insertAdjacentHTML("beforeend", "<div class = 'file-container'><a target='_blank' href='/docs/practikant/" + loginUser + "/" + file + "'>" + file + "</a>" +
+              "<span onclick='z_deleteFile(\"" + file + "\", \"otzivPract\" );' class='delete-file'  style='cursor: pointer; padding-left: 10px;'>×</span></div>");
+          }
+        });
+        // let otchetPractFiles = data.otchetPract.split(';');
+        // otchetPractFiles.forEach(function (file) {
+        //   divFile_otchet.insertAdjacentHTML("beforeend", "<a target='_blank' href='/docs/practikant/" + loginUser + "/" + file + "'>" + file + "</a><br>");
+        // });
     //    divForOtchet.insertAdjacentHTML("afterend", "<a target='_blank' href='/docs/practikant" + loginUser + "/" + data.otzivPract + "'>" + data.otzivPract + "</a>");
       //  divFile_otchet.insertAdjacentHTML("afterend", "<a target='_blank' href='/docs/practikant" + loginUser + "/" + data.otchetPract + "'>" + data.otchetPract + "</a>");
 
@@ -70,7 +84,7 @@
     //---
     function addFile(input) {
       let loginUser = getCookie('login');
-      let divA = document.getElementById("otzyv_file");
+      let divA = input.previousElementSibling;
       let arrayDives = divA.childNodes;
       let stolbecfiles = input.id;
       let arrayFiles = [];
@@ -137,7 +151,7 @@
           deleteButton.style.paddingLeft = '10px';
           deleteButton.id = 'delete_' + addedFile.name;
           deleteButton.onclick = function () {
-            z_deleteFile(addedFile.name);
+            z_deleteFile(addedFile.name, input);
           };
           fileContainer.appendChild(fileLink);
           fileContainer.appendChild(deleteButton);
@@ -149,11 +163,11 @@
       }
     }
 
-    function z_deleteFile(fileName, input) {
-      let stolbecfiles = input.id;
+    function z_deleteFile(fileName, span) {
+      let stolbecfiles = span;
       let loginUser = getCookie('login');
       if (confirm('Вы уверены, что хотите удалить этот файл?')) {
-        let url = 'ajax/z_deleteFile.php?file_name=' + encodeURIComponent(fileName) + '&input=' + input + '&loginUser=' + loginUser + '&stolbecfiles=' + stolbecfiles;
+        let url = 'ajax/z_deleteFile.php?file_name=' + encodeURIComponent(fileName)  + '&loginUser=' + loginUser + '&stolbecfiles=' + stolbecfiles;
         fetch(url)
           .then(response => response.json())
           .then(data => {
