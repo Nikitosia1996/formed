@@ -1,7 +1,6 @@
 <?php
 if (isset($_GET['file_name'])  && isset($_GET['loginUser']) && isset($_GET['stolbecfiles'])) {
   include "../connection.php";
-
   $fileName = $_GET['file_name'];
   $loginUser = $_GET['loginUser'];
   $stolbecfiles = $_GET['stolbecfiles'];
