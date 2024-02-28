@@ -6,7 +6,6 @@ $loginUser = $_POST['loginUser'];
 $stolbecfiles = $_POST['stolbecfiles'];
 
 
-
 $query = "SELECT aa1_practikant.*
     FROM aa1_practikant
     INNER JOIN users
