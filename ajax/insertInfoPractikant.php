@@ -1,9 +1,15 @@
 <?php
 include '../connection.php';
+
+if ($_GET['datePrikaz'] == '') {
+  $datePrikaz = "NULL";
+} else {
+  $datePrikaz = $_GET['datePrikaz'];
+}
+
 $login = $_GET['loginUser'];
 $name = $_GET['name'];
 $university = $_GET['university'];
-$level = $_GET['level'];
 $numPrikaz = $_GET['numPrikaz'];
 $datePrikaz = $_GET['datePrikaz'];
 $specName = $_GET['specName'];
@@ -15,7 +21,6 @@ $practNum = $_GET['practNum'];
 $FioPractUo = $_GET['FioPractUo'];
 $telUniversity = $_GET['telUniversity'];
 $FIOrnpcmt = $_GET['FIOrnpcmt'];
-
 
 
 echo $typePract;

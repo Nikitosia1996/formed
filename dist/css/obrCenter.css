@@ -153,3 +153,33 @@
   font-size: 18px;
   font-weight: 500;
 }
+
+/* up_stranica*/
+.file-container{
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+}
+#file_otchet{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#otzyv_file{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#file_program{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.delete-file{
+  float: right;
+  font-size: 20px;
+  margin-top: -10px;
+}
+
