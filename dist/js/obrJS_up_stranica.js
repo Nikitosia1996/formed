@@ -2,8 +2,13 @@ function getCookie(name) {
   let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
+const urlParams = new URLSearchParams(window.location.search);
+const loginUser = urlParams.get('loginUser');
+
+
+
 function savingPraktikant(){
-  let loginUser = getCookie('login');
+
   let name1 = document.getElementById('name');
   let university1 = document.getElementById('university');
   let level1 = document.getElementById('level');
@@ -34,7 +39,36 @@ function savingPraktikant(){
   let telUniversity = telUniversity1.value
   let FIOrnpcmt = FIOrnpcmt1.value
 
-  console.log("level" + level);
+  //Проверки
+  if (name1.value === '') {
+    alert('Заполните поле Имя');
+    return;
+  }
+  let levelInt = parseInt(level1.value);
+  if (isNaN(levelInt)) {
+    alert('Поле Курс должно быть числом');
+    return;
+  }
+  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(practEmail)) {
+    alert("Неверный формат Email адреса");
+    return;
+  }
+  let phonePattern = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+  let anotherPhonePattern = /^80(?:[0-9] ?){6,14}[0-9]$/;
+  if (!phonePattern.test(practNum) && !anotherPhonePattern.test(practNum)) {
+    alert('Поле Номер телефона должно быть в формате +375(код)(номер телефона) или 80(код)(номер телефона)');
+    return;
+  }
+  if (!phonePattern.test(telUniversity) && !anotherPhonePattern.test(telUniversity)) {
+    alert('Поле Рабочий телефон должно быть в формате +375(код)(номер телефона) или 80(код)(номер телефона)');
+    return;
+  }
+  else{
+    alert('Данные обновлены');
+  }
+
+//конец проверок
 
   $.ajax({
     url: "ajax/insertInfoPractikant.php",
@@ -50,7 +84,7 @@ function savingPraktikant(){
 
 }
 function insertSomeInfo(){
-
+console.log(loginUser);
   let labelName = document.getElementById('name');
   let labelUniversity = document.getElementById('university');
   let labelLevel = document.getElementById('level');
@@ -68,7 +102,7 @@ function insertSomeInfo(){
   let divForOtchet = document.getElementById('otzyv_file');
   let divFile_otchet = document.getElementById('file_otchet');
   let divFile_program = document.getElementById('file_program');
-  let loginUser = getCookie('login');
+
 
   $.ajax({
     url:"ajax/getPractikantInfo.php",
@@ -134,13 +168,13 @@ function insertSomeInfo(){
 window.onload = insertSomeInfo;
 //-
 function addFile(input) {
-  let loginUser = getCookie('login');
+
   let divA = input.previousElementSibling;
   let arrayDives = divA.childNodes;
   let stolbecfiles = input.id;
   let arrayFiles = [];
   arrayDives.forEach(item => {
-    arrayFiles.push(item.children[0].innerText)
+    arrayFiles.push(item.children[0].innerText);
   });
   let xhr = new XMLHttpRequest(),
     form = new FormData();
@@ -169,7 +203,6 @@ function addFile(input) {
 
       let fileName = addedFile.name;
       let extAr = fileName.substring(fileName.lastIndexOf('.'), fileName.length);
-      console.log(extAr);
       if (fileName.length > 120) {
         alert('Слишком длинное имя файла');
         xhr.abort();
@@ -192,7 +225,7 @@ function addFile(input) {
       let fileContainer = document.createElement('div');
       fileContainer.classList.add('file-container');
       let fileLink = document.createElement('a');
-      fileLink.href = `/docs/practikant/${loginUser}/${addedFile.name}`;
+      fileLink.href = `/docs/practikant/${loginUser}/${stolbecfiles}/${addedFile.name}`;
       fileLink.textContent = addedFile.name;
       let deleteButton = document.createElement('span');
       deleteButton.classList.add('delete-file');
@@ -214,11 +247,10 @@ function addFile(input) {
 }
 
 function z_deleteFile(fileName, span) {
-  console.log (fileName + " name file")
-  console.log (span.id + " name file")
-  let loginUser = getCookie('login');
+console.log(encodeURIComponent(fileName));
   if (confirm('Вы уверены, что хотите удалить этот файл?')) {
     let url = 'ajax/z_deleteFile.php?file_name=' + encodeURIComponent(fileName)  + '&loginUser=' + loginUser + '&stolbecfiles=' + span.id;
+
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -228,7 +260,7 @@ function z_deleteFile(fileName, span) {
             if (fileContainers[i].contains(document.getElementById(span.id + fileName))) {
               fileContainers[i].remove();
               // Добавляем запрос на удаление файла с сервера
-              deleteFileFromServer(fileName, loginUser); // Вызов функции для удаления файла с сервера
+              deleteFileFromServer(fileName, loginUser, span.id); // Вызов функции для удаления файла с сервера
               break;
             }
           }
@@ -245,11 +277,11 @@ function z_deleteFile(fileName, span) {
 
 
 function z_deleteFile111(fileName, elem) {
-  console.log (fileName + " name file")
-  console.log (elem + " name file")
-  let loginUser = getCookie('login');
+
+  // let loginUser = getCookie('login');
   if (confirm('Вы уверены, что хотите удалить этот файл?')) {
     let url = 'ajax/z_deleteFile.php?file_name=' + encodeURIComponent(fileName)  + '&loginUser=' + loginUser + '&stolbecfiles=' + elem;
+
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -259,7 +291,7 @@ function z_deleteFile111(fileName, elem) {
             if (fileContainers[i].contains(document.getElementById(elem + fileName))) {
               fileContainers[i].remove();
               // Добавляем запрос на удаление файла с сервера
-              deleteFileFromServer(fileName, loginUser); // Вызов функции для удаления файла с сервера
+             deleteFileFromServer(fileName, loginUser, elem); // Вызов функции для удаления файла с сервера
               break;
             }
           }
@@ -274,12 +306,12 @@ function z_deleteFile111(fileName, elem) {
   }
 }
 
-function deleteFileFromServer(fileName, loginUser) {
+function deleteFileFromServer(fileName, loginUser, element) {
   // Добавьте AJAX запрос на сервер для удаления файла
   $.ajax({
     url: "ajax/deleteFileFromServer.php",
     method: "POST",
-    data: { fileName: fileName, loginUser: loginUser },
+    data: { fileName: fileName, loginUser: loginUser, element: element},
   }).done(function(response) {
     console.log("Файл успешно удален с сервера");
   }).fail(function(jqXHR, textStatus, errorThrown) {

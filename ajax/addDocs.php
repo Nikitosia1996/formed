@@ -22,8 +22,8 @@ if(mysqli_num_rows($rez) == 1){
 }
 
 
-if (!file_exists('../docs/practikant/'.$loginUser)) {
-  mkdir('../docs/practikant/'.$loginUser , 0777, true);
+if (!file_exists('../docs/practikant/'.$loginUser.'/'. $stolbecfiles)) {
+  mkdir('../docs/practikant/'.$loginUser. '/'. $stolbecfiles , 0777, true);
 }
 
 
@@ -31,7 +31,7 @@ if (isset($_FILES['addedFile']['name'])) {
   $file_name = $_FILES['addedFile']['name'];
   $file_tmp = $_FILES['addedFile']['tmp_name'];
 
-  move_uploaded_file($file_tmp, "../docs/practikant/" . $loginUser.'/'. $file_name);
+  move_uploaded_file($file_tmp, "../docs/practikant/" . $loginUser. '/'. $stolbecfiles. '/'. $file_name);
 
   $insertquery =
     "UPDATE aa1_practikant SET $stolbecfiles = CONCAT(IFNULL($stolbecfiles, ''), '$file_name;') WHERE id_practikant = '$id_practikant';";

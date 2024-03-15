@@ -6,10 +6,13 @@ if (isset($_GET['file_name'])  && isset($_GET['loginUser']) && isset($_GET['stol
   $stolbecfiles = $_GET['stolbecfiles'];
   $login = $_COOKIE["login"];
   $fileName = mysqli_real_escape_string($con, $fileName);
-  $query = "SELECT $stolbecfiles FROM aa1_practikant INNER JOIN users ON aa1_practikant.id_user = users.id_user WHERE users.login = '$login'";
+  $query = "SELECT $stolbecfiles FROM aa1_practikant INNER JOIN users ON aa1_practikant.id_user = users.id_user WHERE users.login = '$loginUser'";
   $result = mysqli_query($con, $query);
   $row = mysqli_fetch_assoc($result);
   $filesString = $row[$stolbecfiles];
+
+
+
 //  $queryPract = "SELECT id_practikant FROM aa1_practikant INNER JOIN users ON aa1_practikant.id_user = users.id_user WHERE users.login = '$login'";
 //  $resultPract = mysqli_query($con, $queryPract);
 //  $rowPract = mysqli_fetch_assoc($resultPract);

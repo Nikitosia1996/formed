@@ -463,6 +463,9 @@ else {
                       case 'up_stranicaRractikanta':
                         include 'obrcenter/uch-proizvPractika/up_stranicaRractikanta.php';
                         break;
+                      case 'AdministratorPage':
+                        include 'obrcenter/uch-proizvPractika/AdministratorPage.php';
+                        break;
 
 
                         case 'vop':
@@ -569,6 +572,9 @@ else {
                              break;
                            case 'up_stranicaRractikanta':
                              include 'obrcenter/uch-proizvPractika/up_stranicaRractikanta.php';
+                             break;
+                           case 'AdministratorPage':
+                             include 'obrcenter/uch-proizvPractika/AdministratorPage.php';
                              break;
 
                              case 'vop':

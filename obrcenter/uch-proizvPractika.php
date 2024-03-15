@@ -28,8 +28,18 @@
         {
           let data = JSON.parse(response);
 
-          if (data.id_role == 700 || data.id_role == 500) {
-            location.href = 'index.php?up_stranicaRractikanta';
+          if (data.id_role == 700 ) {
+
+            function getCookie(name) {
+              let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+              return matches ? decodeURIComponent(matches[1]) : undefined;
+            }
+            let loginUser = getCookie('login');
+            location.href = 'index.php?up_stranicaRractikanta&loginUser=' + loginUser;
+          }
+          else if (data.id_role == 500){
+            location.href = 'index.php?AdministratorPage';
+
           }
           else {
             alert ("Вам недоступен этот курс");
