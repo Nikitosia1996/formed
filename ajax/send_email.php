@@ -14,10 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $message .= "Selected Event: $selectedValue1\n";
   $message .= "Event Date: $dateMP\n";
 
-  $headers = "From: bourakovskaia@rnpcmt.by";
+  $headers = 'From: sydykav@rnpcmt.by' . "\r\n" .
+    'Content-type: text/html; charset=utf-8' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
 
   // Send email
-  if (mail("kuryshka@rnpcmt.by", "Заявка с сайта", "ФИО:".$name.". E-mail: ".$email ,"From: bourakovskaia@rnpcmt.by \r\n")) {
+  if (mail("sydykav@rnpcmt.by", "Заявка с сайта", "ФИО:".$name.". E-mail: ".$email ,$headers)) {
     echo "good"; // Email sent successfully
   } else {
     echo "bad"; // Error sending email
