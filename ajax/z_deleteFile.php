@@ -4,7 +4,7 @@ if (isset($_GET['file_name'])  && isset($_GET['loginUser']) && isset($_GET['stol
   $fileName = $_GET['file_name'];
   $loginUser = $_GET['loginUser'];
   $stolbecfiles = $_GET['stolbecfiles'];
-  $login = $_COOKIE["login"];
+//  $login = $_COOKIE["login"];
   $fileName = mysqli_real_escape_string($con, $fileName);
   $query = "SELECT $stolbecfiles FROM aa1_practikant INNER JOIN users ON aa1_practikant.id_user = users.id_user WHERE users.login = '$loginUser'";
   $result = mysqli_query($con, $query);

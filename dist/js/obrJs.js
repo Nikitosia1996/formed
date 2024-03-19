@@ -159,7 +159,26 @@ function validateForm() {
     }).done(function (response)
     {
       if (response=="1ok"){
-        alert('Вы успешно записаны на мероприятие');
+        $.ajax({
+          url: "ajax/send_email.php", // PHP script to handle email sending
+          method: "POST",
+          data: {
+            name: name,
+            email: email,
+            phone: phone,
+            selectedValue1: selectedValue1,
+            dateMP: dateMP
+          }
+        }).done(function (response) {
+          if (response == "good") {
+            alert('Вы успешно записаны на мероприятие и отправлены на почту');
+          } else if (response == "bad") {
+            alert('Вас отправили в бд, но на почту не дошли');
+          } else {
+            alert('Непонятка блин. В бд вроде подключились, а в сенд имеил не дошли даже');
+          }
+        });
+        alert('Отправили в бд а там уже как бог даст');
       } else if (response=="emailInvalid"){
         alert('Вы уже записаны на это мероприятие');
       }
@@ -167,6 +186,7 @@ function validateForm() {
         alert('Ошибка сервера. Обратитесь к администратору');
       }
     });
+
   }
 
 

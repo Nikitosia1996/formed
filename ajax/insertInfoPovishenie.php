@@ -32,7 +32,7 @@ if (mysqli_num_rows($querrySel) > 0 ) //если получена одна ст�
   $id_blog= $row['id_blog'];
   $intertZapis = mysqli_query($con, "INSERT INTO aa1_events_visitors (name,email,phone, id_events , date_kursa, id_blog)
  values ('$name', '$email','$phone', '$id_events' , '$dateMP', '$id_blog')");
-  mail("anastasiya.kurishko2020@gmail.com", "Заявка с сайта", "ФИО:".$name.". E-mail: ".$email ,"From: ms5.g-cloud.by \r\n");
+//  mail("anastasiya.kurishko2020@gmail.com", "Заявка с сайта", "ФИО:".$name.". E-mail: ".$email ,"From: ms5.g-cloud.by \r\n");
   echo "1ok";
 }
 else{

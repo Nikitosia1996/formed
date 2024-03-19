@@ -110,15 +110,15 @@
   </tr>
   <tr>
     <td style="width:20%"><p>Программа практики</p></td>
-    <td colspan="2" style="width:80%"> <div id="file_program"></div><input onchange="addFile(this)" class  = "programFiles" type="file" id="programPract" multiple /><br></td>
+    <td colspan="2" style="width:80%"> <div id="file_program"></div><input onchange="addFile(this)" class  = "programFiles" type="file" id="programPract" /><br></td>
   </tr>
   <tr>
     <td style="width:20%"><p>Отчет о прохождении</p></td>
-    <td colspan="2" style="width:80%">  <div id="file_otchet"></div> <input onchange="addFile(this)" class  = "otchetFiles" type="file" id="otchetPract" multiple /><br></td>
+    <td colspan="2" style="width:80%">  <div id="file_otchet"></div> <input onchange="addFile(this)" class  = "otchetFiles" type="file" id="otchetPract" /><br></td>
   </tr>
   <tr>
     <td style="width:20%"><p>Отзыв руководителя практики</p></td>
-    <td colspan="2" style="width:80%"><div id = "otzyv_file"></div><input onchange="addFile(this)" class  = "otzivFiles" type="file" id="otzivPract" multiple /><br></td>
+    <td colspan="2" style="width:80%"><div id = "otzyv_file"></div><input onchange="addFile(this)" class  = "otzivFiles" type="file" id="otzivPract" /><br></td>
   </tr>
   <tr>
     <td style="width:20%"><p>Анкета</p></td>
