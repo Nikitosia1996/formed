@@ -76,7 +76,7 @@ class Calendar
         if (!empty($event_text)) {
           $out .= '<div class="calendar-popup">';
           foreach ($event_text as $text) {
-            $out .= '<div>' . $text . '</div>';
+            $out .= '<div class="popupDiv">' . $text . '</div>';
           }
           $out .= '</div>';
         }
@@ -157,19 +157,21 @@ while ($row = mysqli_fetch_assoc($dateEvent)) {
       <div class="modalContentInside">
         <div class = "formContainer">
           <form id="eventForm">
-            <h3 style="margin-left:17%; font-weight: bold; margin-bottom: 2.5rem;">Записаться на мероприятие</h3>
+            <h3 id="headerZapis" style="margin-left:-10%; font-weight: bold; margin-bottom: 2.5rem; text-align: center;">Записаться на мероприятие</h3>
             <input placeholder="ФИО" spellcheck="true" class="form-control" type="text" id="name" name="name" required><br>
             <!--        <label for="email">Email:</label>-->
             <input placeholder="Email"  spellcheck="true" type="email" id="email" class="form-control" name="email" required><br>
             <!--        <label for="phone">Телефон:</label>-->
-            <input placeholder="Телефон" spellcheck="true" type="text" id="phone" class="form-control" name="phone" required><br>
+            <input placeholder="Телефон" spellcheck="true" type="text" id="phone" class="form-control" name="phone"><br>
             <div style="display:block;">
               <label style="  margin-left: 20%; font-size: 20px;" for="event">Мероприятие</label><br>
               <select onchange="selectedValue()" id="event" name="event" required>
               </select></div><br>
             <label style="  margin-left: 20%; font-size: 20px;" for="event" >Дата мероприятия</label><br>
             <input  type="date" id="dateMP" class="form-control" name="date" disabled="true"><br>
-            <input id = "buttonZps" class="btn btn-primary" type="submit"  value="Записаться" onclick="validateForm()">
+            <input type="checkbox" id="personalDataCheckbox" required>
+            <label for="personalDataCheckbox">Согласен-(a) на обработку персональных данных</label><br>
+            <input id = "buttonZps" class="btn btn-primary" type="submit"  value="Записаться" onclick="validateForm()" >
           </form>
         </div>
         <div id="eventDescription" ></div>

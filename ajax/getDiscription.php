@@ -11,6 +11,7 @@ if (mysqli_num_rows($querrySel) > 0 ) //если получена одна ст�
   $response['bodyOpisanie'] = $row['bodyOpisanie'];
   $response['cenaOpisanie'] = $row['cenaOpisanie'];
   $response['id_events'] = $row['id_events'];
+  $response['zapis'] = $row['zapis'];
 }
 else{
   $response['error'] = "No data error";

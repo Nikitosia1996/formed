@@ -1,23 +1,31 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $to = "anastasiya.kurishko2020@gmail.com";
 
   $name = $_POST['name'];
   $email = $_POST['email'];
   $phone = $_POST['phone'];
+  $time = $_POST['time'];
   $selectedValue1 = $_POST['selectedValue1'];
   $dateMP = $_POST['dateMP'];
+  $newDateMP = date('d.m.Y', strtotime($dateMP));
 
-  $message = "Name: $name\n";
-  $message .= "Email: $email\n";
-  $message .= "Phone: $phone\n";
-  $message .= "Selected Event: $selectedValue1\n";
-  $message .= "Event Date: $dateMP\n";
+  $messageForUser = "Вы записаны на мероприятие $selectedValue1<br>";
+  $messageForUser .= "Дата мероприятия: $newDateMP<br>";
+  $messageForUser .= "Время: $time<br>";
 
-  $headers = "From: bourakovskaia@rnpcmt.by";
+
+  $message = "ФИО: $name<br>";
+  $message .= "Email: $email<br>";
+  $message .= "Номер телефона: $phone<br>";
+  $message .= "Записан на мероприятие: $selectedValue1<br>";
+  $message .= "Дата мероприятия: $newDateMP<br>";
+
+  $headers = 'From: obrcenter@rnpcmt.by' . "\r\n" .
+    'Content-type: text/html; charset=utf-8' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
 
   // Send email
-  if (mail("kuryshka@rnpcmt.by", "Заявка с сайта", "ФИО:".$name.". E-mail: ".$email ,"From: bourakovskaia@rnpcmt.by \r\n")) {
+  if (mail("kuryshka@rnpcmt.by", "Заявка с сайта", $message ,$headers) && mail($email, "Запись на мероприятие", $message ,$headers)) {
     echo "good"; // Email sent successfully
   } else {
     echo "bad"; // Error sending email

@@ -84,7 +84,7 @@ function savingPraktikant(){
 
 }
 function insertSomeInfo(){
-console.log(loginUser);
+
   let labelName = document.getElementById('name');
   let labelUniversity = document.getElementById('university');
   let labelLevel = document.getElementById('level');
@@ -168,7 +168,6 @@ console.log(loginUser);
 window.onload = insertSomeInfo;
 //-
 function addFile(input) {
-
   let divA = input.previousElementSibling;
   let arrayDives = divA.childNodes;
   let stolbecfiles = input.id;

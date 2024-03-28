@@ -78,6 +78,7 @@
 }
 #eventForm{
   width:100%;
+  height: 580px;
 }
 .modalContentInside{
   display: flex;
@@ -182,4 +183,12 @@
   font-size: 20px;
   margin-top: -10px;
 }
-
+/*.popupDiv{*/
+/*  border-bottom: solid;*/
+/*  border-width: 1px;*/
+/*  padding-bottom: 5px;*/
+/*  margin-top: 5px;*/
+/*}*/
+#personalDataCheckbox{
+margin-left: 130px;
+}

@@ -20,7 +20,6 @@ let segodnya = new Date();
 
     return [year, month, day].join('-');
   }
-  console.log(formatDate(segodnya));
   let nowdate = formatDate(segodnya);
 
 if(formattedDate>nowdate){
@@ -57,7 +56,7 @@ span.onclick = function () {
 }
 window.onclick = function (event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    modal.style.display = "block";
   }
 }
 document.getElementById("eventForm").addEventListener("submit", function (event) {
@@ -115,15 +114,33 @@ function selectedValue(){
     .done(function( response ) {
       let data = JSON.parse(response);
       forDescription.innerHTML = '<div class = "obshDiv"><div class="nameK"> '+ data.name +' </div><div class="headerK">' + data.headerOpisanie +' </div>  <div class = "bodyK">' + data.bodyOpisanie + '</div> <div class = "cenaK">' + data.cenaOpisanie + '</div></div>';
+      if (data.zapis === '0'){
+        sterka('buttonZps');
+        sterka('name');
+        sterka('email');
+        sterka('phone');
+        document.getElementById("headerZapis").innerHTML = "Запись на мероприятие" + '<br>' + "отсутствует";
+
+      }
+      else{
+        kisti('buttonZps');
+        kisti('name');
+        kisti('email');
+        kisti('phone');
+        document.getElementById("headerZapis").innerHTML = "Записаться на мероприятие";
+      }
     });
 }
 function validateForm() {
+
   let isValid = true;
   let nameInput = document.getElementById('name');
   let emailInput = document.getElementById('email');
   let phoneInput = document.getElementById('phone');
   let valueSelect = document.getElementById('event');
   let dateMPInput = document.getElementById('dateMP');
+  let time = document.getElementsByClassName('cenaK')[0];
+  let checkBox = document.getElementById("personalDataCheckbox");
   let selectedValue1 = valueSelect.value;
   let name = nameInput.value;
   let email = emailInput.value;
@@ -132,22 +149,38 @@ function validateForm() {
 
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  let phoneRegex = /^\+?[0-9]+$/;
+  // let phoneRegex = /^(\+375|80)(\s?\d{2}){2}[-\s]?\d{2}[-\s]?\d{2}$/;
+   let phoneNumber = phone.replace(/ /g, '').replace(/-/g, '').replace(/\(|\)/g, '');
 
   if (name === "") {
     alert("Пожалуйста, введите ваше имя");
     isValid = false;
   }
+  else if (email === "") {
+    alert("Пожалуйста, введите свой адрес электронной почты");
+    isValid = false;
+  }
+    else if (!emailRegex.test(email)) {
+      alert("Неверный формат Email адреса");
+      isValid = false;
+    }
 
-  else if (!emailRegex.test(email)) {
-    alert("Неверный формат Email адреса");
+  // else if (!phoneRegex.test(phone)) {
+  //   alert("Неверный формат номера телефона");
+  //   isValid = false;
+  // }
+    else if (phoneNumber.trim() !== "") {
+    if (!/^(?:\+375|80)\d{9}$/.test(phoneNumber) ) {
+      alert("Неверный формат номера телефона. Убедитесь, что введенный вам номер телефона начинается с +375/80 и содержит 9 цифр после кода.");
+      isValid = false;
+  }
+    }
+
+  else if (!checkBox.checked) {
+    alert('Необходимо подтверждение согласия на обработку персональных данных');
     isValid = false;
   }
 
-  else if (!phoneRegex.test(phone)) {
-    alert("Неверный формат номера телефона");
-    isValid = false;
-  }
   if (!isValid) {
     event.preventDefault();
   }
@@ -167,18 +200,20 @@ function validateForm() {
             email: email,
             phone: phone,
             selectedValue1: selectedValue1,
-            dateMP: dateMP
+            dateMP: dateMP,
+            time: time
           }
         }).done(function (response) {
           if (response == "good") {
-            alert('Вы успешно записаны на мероприятие и отправлены на почту');
-          } else if (response == "bad") {
-            alert('Вас отправили в бд, но на почту не дошли');
+            alert('Вы успешно записаны на мероприятие');
+            nameInput.value = "";
+            emailInput.value = "";
+            phoneInput.value = "";
+            checkBox.checked = false;
           } else {
-            alert('Непонятка блин. В бд вроде подключились, а в сенд имеил не дошли даже');
+            alert('Ошибка при отправке электронного письма');
           }
         });
-        alert('Отправили в бд а там уже как бог даст');
       } else if (response=="emailInvalid"){
         alert('Вы уже записаны на это мероприятие');
       }
@@ -193,3 +228,11 @@ function validateForm() {
   return isValid;
 }
 
+function sterka(idDel){
+  let elementDel = document.getElementById(idDel);
+  elementDel.style.cssText = 'display:none';
+}
+function kisti(idShow) {
+  let elementShow = document.getElementById(idShow);
+  elementShow.style.cssText = 'display:block';
+}

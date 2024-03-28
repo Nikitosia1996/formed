@@ -25,6 +25,7 @@ if (mysqli_num_rows($emailUser) > 0 ) {
 } else {
 
 $querrySel = mysqli_query($con, "SELECT * FROM `aa1_events` WHERE name='$selectedValue1' and date_kursa = '$dateMP'");
+
 if (mysqli_num_rows($querrySel) > 0 ) //если получена одна строка
 {
   $row = mysqli_fetch_assoc($querrySel);

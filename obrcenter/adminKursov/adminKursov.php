@@ -121,17 +121,17 @@ if (isset($_COOKIE['login'])) {
 
       echo '<div class = "textm"> Записи пользователей</div>';
 
-      $query = mysqli_query($con, "SELECT aa1_povishenie_events_visitors.*,
+      $query = mysqli_query($con, "SELECT aa1_events_visitors.*,
      aa1_events.name AS event_name , aa1_events.endKurs AS endKurs
-    FROM aa1_povishenie_events_visitors
+    FROM aa1_events_visitors
     INNER JOIN aa1_events
-        ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events");
+        ON aa1_events_visitors.id_events = aa1_events.id_events");
       echo '<table class="table table-striped">';
       echo '<thead><tr><th>ID</th><th>Имя</th><th>Email</th><th>Телефон</th><th>Мероприятие</th><th>IP Address</th><th>Дата начала</th><th>Дата окончания</th></tr></thead>';
       echo '<tbody>';
       while ($row = mysqli_fetch_assoc($query)) {
         echo '<tr>';
-        echo '<td>' . $row['id_povishenie_events_visitors'] . '</td>';
+        echo '<td>' . $row['id_events_visitors'] . '</td>';
         echo '<td>' . $row['name'] . '</td>';
         echo '<td>' . $row['email'] . '</td>';
         echo '<td>' . $row['phone'] . '</td>';
@@ -146,12 +146,12 @@ if (isset($_COOKIE['login'])) {
 
       echo '<hr>';
 
-      $query = mysqli_query($con, "SELECT aa1_povishenie_events_visitors.id_events,
+      $query = mysqli_query($con, "SELECT aa1_events_visitors.id_events,
        aa1_events.name, COUNT(*) AS count_users , aa1_events.endKurs AS endKurs,  aa1_events.date_kursa AS date_kursa
-FROM aa1_povishenie_events_visitors
+FROM aa1_events_visitors
     INNER JOIN aa1_events
-        ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events
-GROUP BY aa1_povishenie_events_visitors.id_events");
+        ON aa1_events_visitors.id_events = aa1_events.id_events
+GROUP BY aa1_events_visitors.id_events");
       echo '<table class="table table-striped">';
       echo '<thead><tr><th>Event Name</th><th>Количество пользователей</th></tr></thead>';
       echo '<tbody>';
@@ -166,7 +166,7 @@ GROUP BY aa1_povishenie_events_visitors.id_events");
       echo '</tbody>';
       echo '</table>';
 
-      $query = mysqli_query($con, "SELECT SUM(count_users) AS total_users FROM (SELECT aa1_povishenie_events_visitors.id_events, COUNT(*) AS count_users FROM aa1_povishenie_events_visitors INNER JOIN aa1_events ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events GROUP BY aa1_povishenie_events_visitors.id_events) AS t");
+      $query = mysqli_query($con, "SELECT SUM(count_users) AS total_users FROM (SELECT aa1_events_visitors.id_events, COUNT(*) AS count_users FROM aa1_events_visitors INNER JOIN aa1_events ON aa1_events_visitors.id_events = aa1_events.id_events GROUP BY aa1_events_visitors.id_events) AS t");
       $row = mysqli_fetch_assoc($query);
       echo '<p><b>Общая количество пользователей по всем мероприятиям: ' . $row['total_users'] . '</b></p>';
 
@@ -198,7 +198,7 @@ GROUP BY aa1_povishenie_events_visitors.id_events");
       echo '<tbody>';
       while ($row = mysqli_fetch_assoc($query)) {
         echo '<tr>';
-        echo '<td>' . $row['id_povishenie_events_visitors'] . '</td>';
+        echo '<td>' . $row['id_events_visitors'] . '</td>';
         echo '<td>' . $row['name'] . '</td>';
         echo '<td>' . $row['email'] . '</td>';
         echo '<td>' . $row['phone'] . '</td>';
@@ -212,12 +212,12 @@ GROUP BY aa1_povishenie_events_visitors.id_events");
 
       echo '<hr>';
 
-      $query = mysqli_query($con, "SELECT aa1_povishenie_events_visitors.id_events,
+      $query = mysqli_query($con, "SELECT aa1_events_visitors.id_events,
        aa1_events.name, COUNT(*) AS count_users
-FROM aa1_povishenie_events_visitors
+FROM aa1_events_visitors
     INNER JOIN aa1_events
-        ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events
-GROUP BY aa1_povishenie_events_visitors.id_events");
+        ON aa1_events_visitors.id_events = aa1_events.id_events
+GROUP BY aa1_events_visitors.id_events");
       echo '<table class="table table-striped">';
       echo '<thead><tr><th>Event Name</th><th>Количество пользователей</th></tr></thead>';
       echo '<tbody>';
@@ -230,7 +230,7 @@ GROUP BY aa1_povishenie_events_visitors.id_events");
       echo '</tbody>';
       echo '</table>';
 
-      $query = mysqli_query($con, "SELECT SUM(count_users) AS total_users FROM (SELECT aa1_povishenie_events_visitors.id_events, COUNT(*) AS count_users FROM aa1_povishenie_events_visitors INNER JOIN aa1_events ON aa1_povishenie_events_visitors.id_events = aa1_events.id_events GROUP BY aa1_povishenie_events_visitors.id_events) AS t");
+      $query = mysqli_query($con, "SELECT SUM(count_users) AS total_users FROM (SELECT aa1_events_visitors.id_events, COUNT(*) AS count_users FROM aa1_events_visitors INNER JOIN aa1_events ON aa1_events_visitors.id_events = aa1_events.id_events GROUP BY aa1_events_visitors.id_events) AS t");
       $row = mysqli_fetch_assoc($query);
       echo '<p><b>Общая количество пользователей по всем мероприятиям: ' . $row['total_users'] . '</b></p>';
       echo '
